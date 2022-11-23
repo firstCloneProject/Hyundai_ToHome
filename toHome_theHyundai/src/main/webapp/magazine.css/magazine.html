@@ -1,0 +1,1217 @@
+<html lang="ko">
+
+<head>
+  <style class="vjs-styles-defaults">
+    .video-js {
+      width: 300px;
+      height: 150px;
+    }
+
+    .vjs-fluid {
+      padding-top: 56.25%;
+    }
+  </style>
+
+  <title>
+    매거진
+  </title>
+
+  <link rel="stylesheet" type="text/css" href="css1.css">
+
+  <link rel="stylesheet" type="text/css" href="css2.css">
+
+  <link rel="stylesheet" type="text/css" href="css3.css">
+
+  <link rel="stylesheet" href="popup.css">
+
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0" style="">
+
+  <div id="wrap" class="magazine main">
+    <header id="header">
+      <div class="inner">
+        <div class="toparea">
+          <h1>
+            <a href="">
+              <img src="tohomemain.png" alt="현대식품관">
+            </a>
+          </h1>
+          <!--로그인 전-->
+          <div class="util" id="dawnLoginN" style="display:hidden">
+            <a href="로그인 DAO">로그인</a>
+            <a href="회원정보 변경">회원가입</a>
+            <a href="">마이페이지</a>
+            <a href="">고객센터</a>
+          </div>
+
+        </div>
+        <!-- 두번째 줄 -->
+        <nav class="gnbarea">
+
+          <button type="button" class="btn-category">
+            카테고리 전체보기
+          </button>
+          <div id="p_popCategory" class="popcategory">
+
+            <nav class="lnb-list">
+              <ul class="lnb">
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    과일과 채소
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        계절 과일
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        일상채소
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        샐러드·쌈채소
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    곡물 · 견과
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        쌀
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        잡곡
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        견과
+
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    생선
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        계절 과일
+
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    오징어
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        생선
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        새우
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        김
+
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    영양제
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        인삼 · 홍삼
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        비타민
+
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        영양제
+
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="depth1">
+                  <button type="button" onclick="">
+                    과자
+                  </button>
+                  <ul class="depth2">
+                    <li>
+                      <a href="">
+                        전체보기
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        스낵
+                      </a>
+                    </li>
+                    <li>
+                      <a href="">
+                        쿠키
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <ul class="gnb-list" id="homeGnbList">
+            <li>
+              <a href="">베스트</a>
+            </li>
+            <li>
+              <a href="">세일</a>
+            </li>
+            <li>
+              <a href="">매거진</a>
+            </li>
+
+          </ul>
+
+          <!-- 검색창 구현? -->
+          <div class="searcharea">
+            <form name="pdPcSearchForm" id="pdPcSearchForm" method="post">
+              <fieldset>
+                <legend class="hide">검색어 입력</legend>
+                <div class="form-entry exist search">
+                  <input type="text" name="keyWord" title="검색어 입력">
+
+                  <button type="button" class="btn-del" tabindex="-1" style="display: block" onclick="reset">삭제</button>
+                  <button type="button" class="btn-search" onclick="">검색</button>
+
+                  <!-- 먼가 정보를 몰래줌 -->
+                  <input type="text" name="searchTerm" class="hide">
+                  <input type="text" name="category" class="hide">
+                  <input type="text" name="pageNumber" class="hide">
+                  <input type="text" name="rowsPerPage" class="hide">
+                  <input type="text" name="tagNm" class="hide">
+                </div>
+              </fieldset>
+            </form>
+
+          </div>
+          <button type="button" class="btn-cart" onclick="">
+            <span>0</span>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <div id="contents">
+
+      <div class="innercon">
+        <!-- lnbarea// -->
+        <div class="lnbarea">
+          <h2>매거진</h2>
+
+        </div>
+
+        <!-- banner// -->
+        <section class="banner">
+          <div class="swiper-container bannerswiper"></div>
+          <div class="btn-area">
+            <div class="swiper-button-prev-banner"></div>
+            <div class="swiper-button-next-banner"></div>
+            <div class="swiper-pagination-tot">
+              <strong>00</strong>
+              /
+              <span>00</span>
+            </div>
+          </div>
+        </section>
+        <!-- //banner -->
+
+        <!-- 매거진 리스트들 -->
+
+        <!-- list// -->
+        <ul class="magazine-list" style="position: relative; height: 12531.6px;">
+          <li class="grid-sizer" style="position: absolute; left: 0px; top: 0px;"></li>
+          <!-- 상단 고정 -->
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 0px;">
+            <a href="javascript:fnGetMgzDetail('220926100576003')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '단감을 낯설게 먹기&amp;lt;br&amp;gt;단감 쏨땀')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/30/142547/osbpz.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">단감을 낯설게 먹기<br>단감 쏨땀</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 0px;">
+            <a href="javascript:fnGetMgzDetail('220928100576002')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '황선우 에세이&amp;lt;br&amp;gt;인생의 단감')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/30/142325/zesxx.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 에세이</small>
+                <strong style="color:#000000;">황선우 에세이<br>인생의 단감</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 0px;">
+            <a href="javascript:fnGetMgzDetail('220926100576002')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '상큼한 가을 소식&amp;lt;br&amp;gt; 석류청 &amp;amp; 에이드')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/30/153610/nrdtw.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">상큼한 가을 소식<br>
+                  석류청 &amp; 에이드</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 706px;">
+            <a href="javascript:fnGetMgzDetail('220928100576001')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '전성태 소설&amp;lt;br&amp;gt;창밖에는 석류')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/30/142015/glauc.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 소설</small>
+                <strong style="color:#000000;">전성태 소설<br>창밖에는 석류</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 706px;">
+            <a href="javascript:fnGetMgzDetail('220916100576002')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '햅쌀로 만든 정찬&amp;lt;br&amp;gt;전복 솥밥')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/19/211732/iwftf.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">햅쌀로 만든 정찬<br>전복 솥밥</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 706px;">
+            <a href="javascript:fnGetMgzDetail('220916100576001')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '백수린 소설&amp;lt;br&amp;gt;어느 가을날의 솥밥')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/22/113742/sjdqs.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 소설</small>
+                <strong style="color:#000000;">백수린 소설<br>어느 가을날의 솥밥</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 1413px;">
+            <a href="javascript:fnGetMgzDetail('220831100006001')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '박찬일 셰프의 &amp;lt;BR&amp;gt; 홍콩식 돼지고기 덮밥')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/09/01/111819/jmzok.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">도시 미식 탐험</small>
+                <strong style="color:#ffffff;">박찬일 셰프의
+                  <br>
+                  홍콩식 돼지고기 덮밥</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 1443px;">
+            <a href="javascript:fnGetMgzDetail('220802100576002')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '아삭 매콤 시원! &amp;lt;br&amp;gt;양파 김치')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/08/02/140815/sgazu.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">작품 속 레시피</small>
+                <strong style="color:#000000;">아삭 매콤 시원!
+                  <br>양파 김치</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 1443px;">
+            <a href="javascript:fnGetMgzDetail('220802100576001')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '윤성희 소설&amp;lt;br&amp;gt;말복이 가기 전에')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/08/02/140459/lioub.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">식품 소설</small>
+                <strong style="color:#ffffff;">윤성희 소설<br>말복이 가기 전에</strong>
+              </span>
+            </a>
+          </li>
+
+          <!-- 이미지배너 -->
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 1983px;">
+            <a href="javascript:fnGetMgzDetail('220712100576001')" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '화려한 풍미의 샐러드&amp;lt;br&amp;gt;프로슈토 복숭아 랩')">
+              <img src="https://tohomeimage.thehyundai.com/DP/DP018/2022/07/12/105634/mrppn.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">작품 속 레시피</small>
+                <strong style="color:#000000;">화려한 풍미의 샐러드<br>프로슈토 복숭아 랩</strong>
+              </span>
+            </a>
+          </li>
+
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 2164px;">
+            <a href="javascript:fnGetMgzDetail(220712100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김민철 에세이<br>어른의 단짠')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/07/22/161129/mhcqm.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">식품 에세이</small>
+                <strong style="color:#ffffff;">김민철 에세이<br>어른의 단짠</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 2164px;">
+            <a href="javascript:fnGetMgzDetail(220412100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '아삭아삭 알싸한 매력 <BR> 루꼴라 치즈 샐러드')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/04/12/110634/nmkhx.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">아삭아삭 알싸한 매력
+                  <br>
+                  루꼴라 치즈 샐러드</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 2554px;">
+            <a href="javascript:fnGetMgzDetail(220412100006002)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '맛있는 비건 요리 <BR> 고수 캐슈넛 크림 우동')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/04/12/110634/dopxu.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">맛있는 비건 요리
+                  <br>
+                  고수 캐슈넛 크림 우동</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 2927px;">
+            <a href="javascript:fnGetMgzDetail(220412100006003)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '상큼한 여름에 어울리는 <BR> 무알콜 페퍼민트 모히토')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/04/12/110634/yaobs.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">상큼한 여름에 어울리는
+                  <br>
+                  무알콜 페퍼민트 모히토</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 2585px;">
+            <a href="javascript:fnGetMgzDetail(220412100006004)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '바질 향 가득한 <BR> 방울토마토 카프레제')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/04/12/111351/nifce.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">바질 향 가득한
+                  <br>
+                  방울토마토 카프레제</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 2975px;">
+            <a href="javascript:fnGetMgzDetail(220331100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '파라다이스에서의<br>룸 서비스')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/03/31/110524/rhxvl.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">미식탐험</em>
+              </div>
+              <span>
+                <small style="color:#000000;">도시 미식 탐험</small>
+                <strong style="color:#000000;">파라다이스에서의<br>룸 서비스</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 3348px;">
+            <a href="javascript:fnGetMgzDetail(220107100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '산지의 신선한 오늘을<br>내일 새벽 식탁으로')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/01/07/113623/crlnr.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">현대식품관의 브랜드</small>
+                <strong style="color:#ffffff;">산지의 신선한 오늘을<br>내일 새벽 식탁으로</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 3006px;">
+            <a href="javascript:fnGetMgzDetail(211223101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '식탁 위에 내린<br>비건 한 스푼, 데이야')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/12/23/164134/pecnm.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">미식탐험</em>
+              </div>
+              <span>
+                <small style="color:#000000;">잇플루언서</small>
+                <strong style="color:#000000;">식탁 위에 내린<br>비건 한 스푼, 데이야</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 3696px;">
+            <a href="javascript:fnGetMgzDetail(211124100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '겨울의 즐거움<br>명란 눈사람 주먹밥')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/11/24/114352/yjprp.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">겨울의 즐거움<br>명란 눈사람 주먹밥</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 3918px;">
+            <a href="javascript:fnGetMgzDetail(211124101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김중혁 소설<br>허무주의자를 위한 크리스마스 레시피')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/11/24/114017/gzmno.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 소설</small>
+                <strong style="color:#000000;">김중혁 소설<br>허무주의자를 위한 크리스마스 레시피</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 3727px;">
+            <a href="javascript:fnGetMgzDetail(211206100576001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '2021<br>베스트 상품 어워즈')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/12/28/131325/xohcc.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">연말 어워드</small>
+                <strong style="color:#ffffff;">2021<br>베스트 상품 어워즈</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 4267px;">
+            <a href="javascript:fnGetMgzDetail(210910100576001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '이용해보니 어때요?<br>투홈구독 일일체험기')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/09/10/161419/fbxpe.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#000000;">투홈 서비스 안내</small>
+                <strong style="color:#000000;">이용해보니 어때요?<br>투홈구독 일일체험기</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 4640px;">
+            <a href="javascript:fnGetMgzDetail(201008100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '15분 완성, 가을 브런치<br>무화과 토르티야 피자')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2020/10/08/091214/zpdky.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">15분 완성, 가을 브런치<br>무화과 토르티야 피자</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 4298px;">
+            <a href="javascript:fnGetMgzDetail(210901101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '박준 에세이<br>고요와 소란 사이, 무화과의 맛')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/09/06/100330/ohdso.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 에세이</small>
+                <strong style="color:#000000;">박준 에세이<br>고요와 소란 사이, 무화과의 맛</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 4837px;">
+            <a href="javascript:fnGetMgzDetail(210831100006002)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '빙봉의<br>링고 버터 크럼블')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/08/31/164018/ccnoc.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">빙봉의<br>링고 버터 크럼블</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 5210px;">
+            <a href="javascript:fnGetMgzDetail(210831100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '메종엠오의<br>샐러드 드 후류이')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/08/31/164018/ftqdb.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">메종엠오의<br>샐러드 드 후류이</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 5019px;">
+            <a href="javascript:fnGetMgzDetail(220926100576006)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '미각을 자극하는<br>명인의 콩국수')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/10/14/150733/akemr.JPG?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">미각을 자극하는<br>명인의 콩국수</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 5387px;">
+            <a href="javascript:fnGetMgzDetail(210730101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '봉태규 에세이<br>비로소, 콩국수')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/07/30/084710/xrjak.JPG?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 에세이</small>
+                <strong style="color:#000000;">봉태규 에세이<br>비로소, 콩국수</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 5760px;">
+            <a href="javascript:fnGetMgzDetail(200826100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '간단한 와인 안주<br>보콘치니 스큐어 ')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2020/08/26/151911/yzihg.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">간단한 와인 안주<br>보콘치니 스큐어
+                </strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 5741px;">
+            <a href="javascript:fnGetMgzDetail(200807100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '상쾌한 여름 디저트<br>오미자 수박 화채')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2020/08/07/174905/ijncd.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">상쾌한 여름 디저트<br>오미자 수박 화채</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 5958px;">
+            <a href="javascript:fnGetMgzDetail(200708100006004)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '초여름의 향기<br>바질페스토 파스타 샐러드')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2020/07/08/011028/aeumv.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">초여름의 향기<br>바질페스토 파스타 샐러드</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 6310px;">
+            <a href="javascript:fnGetMgzDetail(210715100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '투홈이 달려온<br>365일간의 기록')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/07/15/133022/mmqli.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#000000;">1주년 기획전</small>
+                <strong style="color:#000000;">투홈이 달려온<br>365일간의 기록</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 6291px;">
+            <a href="javascript:fnGetMgzDetail(210621101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '올 여름은 집에서 <br>국수 맛집 도장깨기')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/21/104252/iowsa.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">미식탐험</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">방방곡곡 맛집</small>
+                <strong style="color:#ffffff;">올 여름은 집에서
+                  <br>국수 맛집 도장깨기</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 6507px;">
+            <a href="javascript:fnGetMgzDetail(210628100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '초당옥수수를 활용한<br>버터구이와 요거트 샐러드')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/28/180923/waqdu.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">작품 속 레시피</small>
+                <strong style="color:#000000;">초당옥수수를 활용한<br>버터구이와 요거트 샐러드</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 6880px;">
+            <a href="javascript:fnGetMgzDetail(210628101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '요조 에세이<br>턱이 시리도록 달고 좋았다')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/28/125501/ziifu.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">식품 에세이</small>
+                <strong style="color:#ffffff;">요조 에세이<br>턱이 시리도록 달고 좋았다</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 6861px;">
+            <a href="javascript:fnGetMgzDetail(210610100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '나의 규칙적 미식 생활<br>정기구독 서비스 안내')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/10/104245/chwvj.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#000000;">투홈 서비스 안내</small>
+                <strong style="color:#000000;">나의 규칙적 미식 생활<br>정기구독 서비스 안내</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 7078px;">
+            <a href="javascript:fnGetMgzDetail(210603100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '시원한 여름의 맛<br>냉 멸치국수')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/03/120819/paazk.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">시원한 여름의 맛<br>냉 멸치국수</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 7602px;">
+            <a href="javascript:fnGetMgzDetail(210603101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김금희 소설<br>여름의 앤초비')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/06/03/120153/duffu.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 소설</small>
+                <strong style="color:#000000;">김금희 소설<br>여름의 앤초비</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 7583px;">
+            <a href="javascript:fnGetMgzDetail(210427100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '선물하기 가이드<br>GIFT to Home')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/04/27/210632/lflwo.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">투홈 서비스 안내</small>
+                <strong style="color:#ffffff;">선물하기 가이드<br>GIFT to Home</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 7648px;">
+            <a href="javascript:fnGetMgzDetail(210512100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '로맨틱 테이블을 위한 <br>토마호크 스테이크 레시피')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/05/12/105936/lrsvj.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">로맨틱 테이블을 위한
+                  <br>토마호크 스테이크 레시피</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 8323px;">
+            <a href="javascript:fnGetMgzDetail(210428100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '감칠맛 가득한<br>원테이블의 든든한 한 상')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/04/29/090031/lxgou.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">감칠맛 가득한<br>원테이블의 든든한 한 상</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 8153px;">
+            <a href="javascript:fnGetMgzDetail(210427101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '오은 에세이<br>감칠맛이 보상이라니')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/04/27/211705/ulmdr.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 에세이</small>
+                <strong style="color:#000000;">오은 에세이<br>감칠맛이 보상이라니</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 8198px;">
+            <a href="javascript:fnGetMgzDetail(210406100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '이 봄날의 향긋한<br>미나리 물김치')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/04/06/163955/omsms.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">이 봄날의 향긋한<br>미나리 물김치</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 8894px;">
+            <a href="javascript:fnGetMgzDetail(210407101320002)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김연수 소설<br>아직은 봄이니까, 미나리는 얼마든지')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/04/07/200952/tfcbd.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 소설</small>
+                <strong style="color:#000000;">김연수 소설<br>아직은 봄이니까, 미나리는 얼마든지</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 8724px;">
+            <a href="javascript:fnGetMgzDetail(210310100385001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '바이어의 탐구, 브랜드의 정성<br>브랜드직송 서비스')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/10/161205/zdvkg.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">투홈 서비스 안내</small>
+                <strong style="color:#ffffff;">바이어의 탐구, 브랜드의 정성<br>브랜드직송 서비스</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 8769px;">
+            <a href="javascript:fnGetMgzDetail(210331100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '부드러운 풀드포크를 넣은<br>접어 먹는 또띠아 샌드위치')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/31/084441/apqrh.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">부드러운 풀드포크를 넣은<br>접어 먹는 또띠아 샌드위치</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 9616px;">
+            <a href="javascript:fnGetMgzDetail(210316100576001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김형석 셰프의 미식 여행<br> 감칠맛 가득 동파육')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/16/131153/hxwtj.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">김형석 셰프의 미식 여행<br>
+                  감칠맛 가득 동파육</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 9295px;">
+            <a href="javascript:fnGetMgzDetail(210318100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '고소한 버터 품은<br>유자 곶감 주머니')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/18/173421/mjwoh.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">고소한 버터 품은<br>유자 곶감 주머니</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 9319px;">
+            <a href="javascript:fnGetMgzDetail(220926100576005)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '봄날의<br>딸기 플레이트')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/10/14/142811/ausgt.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">작품 속 레시피</small>
+                <strong style="color:#ffffff;">봄날의<br>딸기 플레이트</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 10165px;">
+            <a href="javascript:fnGetMgzDetail(210302101320001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '장우철 에세이<br>딸기의 자리')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2022/10/19/133831/eloqf.JPG?RS=388" alt="">
+              <div class="cate">
+                <em class="white">현대식품문학</em>
+              </div>
+              <span>
+                <small style="color:#000000;">식품 에세이</small>
+                <strong style="color:#000000;">장우철 에세이<br>딸기의 자리</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 9844px;">
+            <a href="javascript:fnGetMgzDetail(210219100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김형석 셰프의<br>만년설 딸기 샐러드')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/02/165455/apdtf.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">김형석 셰프의<br>만년설 딸기 샐러드</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 10040px;">
+            <a href="javascript:fnGetMgzDetail(210303100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '봄날의 달콤한 디저트<br>바나나 티라미수')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/03/03/154734/fwszz.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">봄날의 달콤한 디저트<br>바나나 티라미수</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 10887px;">
+            <a href="javascript:fnGetMgzDetail(210225100576001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '투홈 APP에서 만나는 더현대서울')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/02/25/111340/iunad.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">투홈 서비스 안내</small>
+                <strong style="color:#ffffff;">투홈 APP에서 만나는 더현대서울</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 10394px;">
+            <a href="javascript:fnGetMgzDetail(210201100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '김형석 셰프의<br>초코 수플레 케이크')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/02/01/155239/edbnj.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">김형석 셰프의<br>초코 수플레 케이크</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 0px; top: 10590px;">
+            <a href="javascript:fnGetMgzDetail(210115100576001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '신선투홈으로<BR>일주일 식탁 차리기')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/01/15/195446/hgobw.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">투홈가이드</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;">투홈 서비스 안내</small>
+                <strong style="color:#ffffff;">신선투홈으로<br>일주일 식탁 차리기</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 407px; top: 11432px;">
+            <a href="javascript:fnGetMgzDetail(210112100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '마음을 녹이는<br>대게살 스프')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/01/12/160819/yaldh.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">마음을 녹이는<br>대게살 스프</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 815px; top: 11041px;">
+            <a href="javascript:fnGetMgzDetail(210107100006002)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '겨울 바다내음 물씬<br>김굴국')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/01/07/173913/apvyz.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">겨울 바다내음 물씬<br>김굴국</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 0px; top: 11160px;">
+            <a href="javascript:fnGetMgzDetail(210107100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '딸기 콩포트를 곁들인<br>프렌치 토스트')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/01/07/173913/ltunl.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">딸기 콩포트를 곁들인<br>프렌치 토스트</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(0, 0, 0); position: absolute; left: 407px; top: 11981px;">
+            <a href="javascript:fnGetMgzDetail(210105100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '매콤 담백<br>닭날개 오븐 구이')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2021/01/05/153508/plooa.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="black">레시피</em>
+              </div>
+              <span>
+                <small style="color:#ffffff;"></small>
+                <strong style="color:#ffffff;">매콤 담백<br>닭날개 오븐 구이</strong>
+              </span>
+            </a>
+          </li>
+          <li style="background-color: rgb(255, 255, 255); position: absolute; left: 815px; top: 11591px;">
+            <a href="javascript:fnGetMgzDetail(201221100006001)" class="bg-box"
+              onclick="GA_Event('PC_매거진', '매거진', '홈 메이드<br>데리야끼 닭꼬치')"><img
+                src="https://tohomeimage.thehyundai.com/DP/DP018/2020/12/21/192045/uwngn.jpg?RS=388" alt="">
+              <div class="cate">
+                <em class="white">레시피</em>
+              </div>
+              <span>
+                <small style="color:#000000;"></small>
+                <strong style="color:#000000;">홈 메이드<br>데리야끼 닭꼬치</strong>
+              </span>
+            </a>
+          </li>
+        </ul>
+        <!-- //list -->
+      </div>
+      <!-- //매거진 리스트 -->
+
+    </div>
+
+    <footer id="footer">
+      <div class="util">
+        <div class="inner">
+          <a href="/front/dp/dpf/companyIntro.do" class="btn-tohome"
+            onclick="GA_Event('PC_공통', '푸터_메뉴', '브랜드소개');">브랜드소개</a>
+          <a href="/front/dp/dpf/serviceTos.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '이용약관');">이용약관</a>
+          <a href="/front/dp/dpf/personalInfoPolicy.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '개인정보처리방침');">
+            <strong>개인정보처리방침</strong>
+          </a>
+          <a href="/front/dp/dpf/youthPolicy.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '청소년보호정책');">청소년보호정책</a>
+          <a href="/front/dp/dpf/imagingDevicePolicy.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '영상기기운영방침');">영상기기운영방침</a>
+
+          <div class="share">
+            <button type="button" class="btn-youtube"
+              onclick="GA_Event('PC_공통', '푸터_SNS', 'youtube'); location.href='https://www.youtube.com/channel/UCiAFKYYJOexSKyKmhEIXDEw?outUrlYn=Y'">youtube</button>
+            <button type="button" class="btn-facebook"
+              onclick="GA_Event('PC_공통', '푸터_SNS', 'facebook'); location.href='https://www.facebook.com/tohome.official?outUrlYn=Y'">facebook</button>
+            <button type="button" class="btn-instagram"
+              onclick="GA_Event('PC_공통', '푸터_SNS', 'instagram'); location.href='https://www.instagram.com/tohome.official?outUrlYn=Y'">instagram</button>
+          </div>
+
+          <div class="familysite">
+            <button type="button" class="btn-site" onclick="$('.familysite .link-list').fadeToggle()">Family
+              Site</button>
+            <ul class="link-list">
+              <li>
+                <a href="https://www.thehyundai.com/Home.html" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '더현대닷컴');">더현대닷컴</a>
+              </li>
+              <li>
+                <a href="https://www.greating.co.kr/" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '그리팅 (greating)');">그리팅 (greating)</a>
+              </li>
+              <li>
+                <a href="https://www.hmall.com/p/" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '현대Hmall');">현대Hmall</a>
+              </li>
+              <li>
+                <a href="https://www.thehandsome.com/ko/" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '더한섬');">더한섬</a>
+              </li>
+              <li>
+                <a href="https://www.eqlstore.com/main" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '한섬 EQL');">한섬 EQL</a>
+              </li>
+              <li>
+                <a href="https://www.hfashionmall.com/sfmweb" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', 'H패션몰');">H패션몰</a>
+              </li>
+              <li>
+                <a href="https://www.hddfs.com/shop/dm/main.do" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '현대백화점 DUTY FREE');">현대백화점 DUTY FREE</a>
+              </li>
+              <li>
+                <a href="https://mall.hyundailivart.co.kr/front/index_org.lv" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '현대리바트몰');">현대리바트몰</a>
+              </li>
+              <li>
+                <a href="https://www.hyundairentalcare.co.kr/" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', '현대렌탈케어');">현대렌탈케어</a>
+              </li>
+              <li>
+                <a href="https://www.h-point.co.kr/cu/main/index.nhd" target="_blank"
+                  onclick="GA_Event('PC_공통', '패밀리사이트', 'H.point');">H.point</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="info">
+        <div class="inner">
+          <img src="img1\footlogo.png">
+          <div class="logo">현대식품관</div>
+
+          <div id="fnDawnBizpCrstList">
+            <strong>(주)현대백화점</strong><br>
+            <span>대표이사 : 김형종 외 2인</span>
+            <span>
+              주소 : 서울 강남구 테헤란로98길 12 (대치동) 현대백화점</span><br>전화 : 02-1800-9549<br>이메일 : tohome@thehyundai.com<br>사업자 등록번호
+            : 211-87-21455<a href="#"
+              onclick="javascript:fnAppLoad('http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2118721455');return false;">사업자등록확인</a><br>통신판매업자
+            신고번호 : 2010-서울강남-01882<br>
+            <p class="essential-info">
+              <em>현대식품관 투홈의 개별 판매자가 등록한 상품(브랜드직송) 상품에 대한 광고, 상품주문, 배송, 환불의 의무와 책임은 각 판매자가 부담하고,<br>현대식품관 투홈은 통신판매 중개자로서의
+                의무와 책임을 다합니다.</em><br>고객님의 안전거래를 위해 현금결제 시 KG이니시스 구매안전 서비스를 이용하실 수 있습니다.<button type="button"
+                class="confirm-btn" onclick="fn.popupOpen('#guaranteePopup')" ;="">서비스 가입사실 확인</button>
+            </p>
+            <small class="copyright">Copyright © Hyundai Department Store. All rights reserved.</small>
+          </div>
+        </div>
+      </div>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>

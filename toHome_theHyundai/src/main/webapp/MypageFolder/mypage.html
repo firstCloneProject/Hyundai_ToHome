@@ -1,0 +1,530 @@
+<html lang="ko">
+
+    <head>
+        <style class="vjs-styles-defaults">
+            .video-js {
+                width: 300px;
+                height: 150px;
+            }
+
+            .vjs-fluid {
+                padding-top: 56.25%;
+            }
+        </style>
+        <!-- 업무단 공통 태그 -->
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="format-detection" content="telephone=no, email=no, address=no">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <!-- // 업무단 공통 태그 -->
+
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+        <meta name="format-detection" content="telephone=no, email=no, address=no">
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+
+        <title>마이페이지</title>
+
+        <meta
+            name="naver-site-verification"
+            content="9d1352e041ebcfbde976e2946abbe6eee9fc5714">
+
+        <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/UIUX/w/pjtCom/images/common/favicon.ico">
+
+        <link rel="stylesheet" type="text/css" href="mypage1.css">
+
+        <link rel="stylesheet" type="text/css" href="mypage2.css">
+
+        <link rel="stylesheet" type="text/css" href="mypage3.css">
+
+        <link rel="stylesheet" type="text/css" href="mypage4.css">
+        <link rel="stylesheet" type="text/css" href="popup.css">
+
+    </head>
+
+    <body
+        data-aos-easing="ease"
+        data-aos-duration="400"
+        data-aos-delay="0"
+        style="">
+
+        <div id="wrap" class="mypage mypage main">
+
+            <header id="header">
+
+                <div class="inner">
+                    <!-- toparea// -->
+                    <div class="toparea">
+                        <h1>
+                            <a
+                                href="/front/dp/dpa/dawnHome.do"
+                                onclick="GA_Event('PC_공통', '로고', '현대식품관투홈');"><img src="tohomemain.png" alt="현대식품관"></a>
+                        </h1>
+
+                        <!-- util : 로그인 전// -->
+
+                        <!-- //util : 로그인 전 -->
+
+                        <!-- util : 로그인 후// -->
+                        <div class="util" id="dawnLoginY" style="display: hidden">
+                            <button type="button" class="btn-linedown btn-personal" id="memNmText">@@@@님! 반갑습니다.</button>
+                            <a href="/front/cua/logout.do" class="active">로그아웃</a>
+                            <!-- 활성화 class="active" 추가 -->
+                            <a href="/front/cua/mypage/updateMember.do">회원정보변경</a>
+                            <a
+                                href="/front/mp/mpa/selectMyPageMain.do"
+                                onclick="GA_Event('PC_공통', '헤더', '마이페이지');">마이페이지</a>
+                            <a
+                                href="/front/dp/dpf/customerCenterMain.do"
+                                onclick="GA_Event('PC_공통', '헤더', '고객센터');">고객센터</a>
+                        </div>
+
+                        <!-- //util : 로그인 후 -- </div> <!-- gnbarea// -->
+                        <nav class="gnbarea">
+
+                            <!-- 팝업 : category// -->
+                            <div id="popCategory">
+
+                                <script type="text/javascript">
+
+                                    $(document).ready(function () {
+                                        // 퍼블 정상 동작을 위해 $(document).ready에 추가
+                                        $('.depth1.brand-wrap .depth2 button, .depth3').hover(function () {
+                                            $(this)
+                                                .parents('ul.lnb')
+                                                .addClass('on');
+                                        }, function () {
+                                            $(this)
+                                                .parents('ul.lnb')
+                                                .removeClass('on');
+                                        });
+
+                                        $('.exhibition-wrap, .brand-ct').hover(function () {
+                                            $(this)
+                                                .parents('ul.lnb')
+                                                .addClass('on2');
+                                        }, function () {
+                                            $(this)
+                                                .parents('ul.lnb')
+                                                .removeClass('on2');
+                                        });
+                                    });
+                                </script>
+
+                                <!-- category// -->
+                                <button type="button" class="btn-category">카테고리 전체보기</button>
+
+                                <!-- 팝업 : category// -->
+
+                                <div id="p_popCategory" class="popcategory">
+                                    <nav class="lnb-list">
+                                        <nav class="lnb-list">
+                                            <ul class="lnb">
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        과일과 채소
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                계절 과일
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                일상채소
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                샐러드·쌈채소
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        곡물 · 견과
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                쌀
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                잡곡
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                견과
+
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        생선
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                계절 과일
+
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        오징어
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                생선
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                새우
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                김
+
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        영양제
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                인삼 · 홍삼
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                비타민
+
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                영양제
+
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li class="depth1">
+                                                    <button type="button" onclick="">
+                                                        과자
+                                                    </button>
+                                                    <ul class="depth2">
+                                                        <li>
+                                                            <a href="">
+                                                                전체보기
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                스낵
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="">
+                                                                쿠키
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+
+                                </div>
+
+                                <!-- gnb// -->
+                                <ul class="gnb-list" id="homeGnbList">
+                                    <li>
+                                        <a
+                                            href="/front/dp/dpa/dawnHome.do?gubun=best"
+                                            onclick="GA_Event('PC_공통','GNB', '베스트');">베스트</a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/front/dp/dpa/dawnHome.do?gubun=sale"
+                                            onclick="GA_Event('PC_공통','GNB', '세일');">세일</a>
+                                    </li>
+                                    <li>
+                                        <a
+                                            href="/front/dp/dpa/dawnHome.do?gubun=newProd"
+                                            onclick="GA_Event('PC_공통','GNB', '신상품');">메거진</a>
+                                    </li>
+
+                                    <li></li>
+                                    <li></li>
+
+                                </ul>
+                                <!-- //gnb -->
+
+                                <!-- search// -->
+                                <div class="searcharea">
+                                    <form name="pdPcSearchForm" id="pdPcSearchForm" method="post">
+                                        <fieldset>
+                                            <legend class="hide">검색어 입력</legend>
+
+                                            <div class="form-entry exist search">
+                                                <input
+                                                    type="text"
+                                                    name="keyWord"
+                                                    title="검색어 입력"
+                                                    onfocus="fn.addClass('div.searcharea');$('#defaultsearch').fadeIn();$('#esuDefaultsearch').fadeOut();$('#autoSearch').fadeOut();"
+                                                    oninput="handleOnInput(this, 20);"
+                                                    autocomplete="off"
+                                                    onkeyup="fnPDSearchAutoSelect(this, event);">
+                                                <button type="button" class="btn-del" tabindex="-1">삭제</button>
+                                                <button
+                                                    type="button"
+                                                    class="btn-search"
+                                                    onclick="GA_Event('PC_공통', '헤더', '검색'); fnPDSearchSubmit('N');">검색</button>
+                                            </div>
+                                            <input type="text" name="searchTerm" class="hide">
+                                            <input type="text" name="category" class="hide">
+                                            <input type="text" name="pageNumber" class="hide">
+                                            <input type="text" name="rowsPerPage" class="hide">
+                                            <input type="text" name="tagNm" class="hide">
+                                        </fieldset>
+                                    </form>
+
+                                </div>
+                                <!-- //search -->
+                                <button
+                                    type="button"
+                                    class="btn-cart"
+                                    onclick="GA_Event('PC_공통', '헤더', '장바구니'); javascript:fnPdShippingBasketList( this);">장바구니<span id="basketCnt">2</span></button>
+                            </nav>
+
+                        </div>
+                    </header>
+
+                    <title>비회원주문조회 - 현대식품관</title>
+
+                    <!-- contents부분 !! -->
+                    <div id="contents">
+                        <div class="innercon">
+                            <!-- mypage 부분 -->
+
+                            <section class="lnbarea">
+                                <h2>마이페이지</h2>
+                                <ul>
+                                    <li class="lnb-depth1">
+                                        <a href="#">주문관리</a>
+                                        <ul class="lnb-depth2">
+                                            <li>
+                                                <a href="/front/od/odd/orderList.do" onclick="fn_GaEvent(this);">주문 내역</a>
+                                            </li>
+                                            <!-- 20220412 김민서 [e슈퍼이관] e슈퍼 링크 추가 -->
+                                            <li>
+                                                <a href="/front/od/odd/orderCnclList.do" onclick="fn_GaEvent(this);">주문취소</a>
+                                            </li>
+                                            <li>
+                                                <a href="/front/od/odd/orderExchRtpList.do" onclick="fn_GaEvent(this);">반품/교환</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li class="lnb-depth1">
+                                        <a href="#">나의 정보</a>
+                                        <ul class="lnb-depth2">
+                                            <li>
+                                                <a href="/front/cua/mypage/certPwd.do" onclick="fn_GaEvent(this);">회원정보 변경</a>
+                                            </li>
+                                            <li>
+                                                <a href="/front/od/odd/shippingList.do" onclick="fn_GaEvent(this);">배송지 관리</a>
+                                            </li>
+
+                                            <li>
+                                                <a
+                                                    href="/front/cua/mypage/personalInfoUseStatus.do"
+                                                    onclick="fn_GaEvent(this);">개인정보 이용현황</a>
+                                            </li>
+
+                                            <li></li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </section>
+
+                            <!-- //mypage lnb -->
+
+                            <section class="conarea">
+                                <h3 class="hide">마이페이지</h3>
+
+                                <section class="mystate-section">
+                                    <div class="myinfo">
+
+                                        <div class="memclass normal">
+
+                                            <div class="cont">
+                                                <strong class="name">박정훈님</strong>
+
+                                                <ul>
+                                                    <li>
+                                                        <a
+                                                            href="/front/cua/mypage/certPwd.do"
+                                                            class="btn-line"
+                                                            onclick="GA_Event('PC_마이페이지','회원정보','회원정보');">회원정보</a>
+                                                    </li>
+                                                    <li>
+                                                        <a
+                                                            href="#"
+                                                            class="btn-line"
+                                                            onclick="fn.popupOpen('#p_popGradeBenefit');GA_Event('PC_마이페이지','회원정보','멤버십 혜택');">멤버십 혜택</a>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="point"></div>
+                                </section>
+
+                                <section class="hpointchange-section" id="hpointNoMem">
+                                    <p>현대백화점그룹 H.Point 통합회원으로 전환하고 멤버십 혜택과 다양한 서비스를 하나의 아이디로 누리세요!</p>
+                                    <a href="/front/cua/front/joinStep3Hpoint.do" class="btn-round">H.Point 통합회원 전환하기</a>
+                                </section>
+
+                                <section class="view-section">
+                                    <header class="header">
+
+                                        <a
+                                            href="/front/mp/mpb/recentViewSlitm.do"
+                                            class="btn-line"
+                                            onclick="GA_Event('PC_마이페이지','최근_본_상품','더보기');">더보기</a>
+                                    </header>
+
+                                </section>
+                            </section>
+                        </div>
+                    </div>
+
+                    <footer id="footer">
+                        <div class="util">
+                            <div class="inner">
+                                <a
+                                    href="/front/dp/dpf/companyIntro.do"
+                                    class="btn-tohome"
+                                    onclick="GA_Event('PC_공통', '푸터_메뉴', '브랜드소개');">브랜드소개</a>
+                                <a
+                                    href="/front/dp/dpf/serviceTos.do"
+                                    onclick="GA_Event('PC_공통', '푸터_메뉴', '이용약관');">이용약관</a>
+                                <a
+                                    href="/front/dp/dpf/personalInfoPolicy.do"
+                                    onclick="GA_Event('PC_공통', '푸터_메뉴', '개인정보처리방침');">
+                                    <strong>개인정보처리방침</strong>
+                                </a>
+                                <a
+                                    href="/front/dp/dpf/youthPolicy.do"
+                                    onclick="GA_Event('PC_공통', '푸터_메뉴', '청소년보호정책');">청소년보호정책</a>
+                                <a
+                                    href="/front/dp/dpf/imagingDevicePolicy.do"
+                                    onclick="GA_Event('PC_공통', '푸터_메뉴', '영상기기운영방침');">영상기기운영방침</a>
+
+                            </div>
+                        </div>
+
+                        <div class="info">
+                            <div class="inner">
+                                <div class="logo">현대식품관</div>
+                                <div id="fnDawnBizpCrstList">
+                                    <strong>(주)현대백화점</strong><br>
+                                    <span>대표이사 : 김형종 외 2인</span>
+                                    <span>
+                                        주소 : 서울 강남구 테헤란로98길 12 (대치동) 현대백화점</span><br>전화 : 02-1800-9549<br>이메일 : tohome@thehyundai.com<br>사업자 등록번호 : 211-87-21455<a
+                                            href="#"
+                                            onclick="javascript:fnAppLoad('http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2118721455');return false;">사업자등록확인</a><br>통신판매업자 신고번호 : 2010-서울강남-01882<br>
+                                    <p class="essential-info">
+                                        <em>현대식품관 투홈의 개별 판매자가 등록한 상품(브랜드직송) 상품에 대한 광고, 상품주문, 배송, 환불의 의무와 책임은 각 판매자가 부담하고,<br>현대식품관 투홈은 통신판매 중개자로서의 의무와 책임을 다합니다.</em><br>고객님의 안전거래를 위해 현금결제 시 KG이니시스 구매안전 서비스를 이용하실 수 있습니다.<button
+                                            type="button"
+                                            class="confirm-btn"
+                                            onclick="fn.popupOpen('#guaranteePopup')"
+                                            ;="">서비스 가입사실 확인</button>
+                                    </p>
+                                    <small class="copyright">Copyright © Hyundai Department Store. All rights reserved.</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- topbtn// -->
+                        <button
+                            type="button"
+                            class="btn-top"
+                            onclick="GA_Event('PC_공통', 'TOP', 'TOP');"
+                            style="right: 545px; bottom: 50px;">TOP</button>
+                        <!-- //topbtn -->
+                    </footer>
+                    <!--지급보증서 팝업-->
+
+                    <!-- //footer -->
+
+                </div>
+
+            </body>
+
+        </html>
