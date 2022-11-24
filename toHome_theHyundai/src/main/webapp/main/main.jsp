@@ -10,7 +10,7 @@
 <!-- Link Swiper's CSS -->
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="main.css" />
 <!-- Demo styles -->
 </head>
 <body>

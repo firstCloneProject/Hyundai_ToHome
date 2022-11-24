@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+  <link rel="stylesheet" type="text/css" href="popup.css">
+</head>
+<body>
+  <div id="p_popReviewPic" class="popup popreviewpic open" style="top: 0px; z-index: 100; opacity: 1;">
+    <div class="inner" style="top: 285px;">
+    	<div><input class="btn-close" type="image" src='Xbutton.PNG' onclick="fn.popupClose()" style="float:right;"></input></div>
+
+        <header>
+            <h2>
+              <div class="comment" style="text-align:center">${박정훈}님의 장바구니로 만들 수 있는 레시피를 추천합니다!<br>
+                <!-- <div class="grade-star"><span><span style="width: 100%;">5</span></span></div> -->
+                <span class="txt-option" style="font-size:small; text-align:center">중앙축산 40년 헤리티지를 잇는 삼성동 중앙해장 시그니처 메뉴</span><br>
+                <strong style="font-size:medium; text-align:center;">[${회사이름}]  ${상품명} (중/2인분)</strong>
+               </div>
+            </h2>
+        </header>
+
+        <div class="contents">
+            <div class="swiper-container reviewpicswiper swiper-container-horizontal" style="opacity: 1;">
+              <img src="https://tohomeimage.thehyundai.com/pd/pde/2022/11/24/175211381/20221104_071410.jpg?RS=720&amp;AO=1" style="width: 520px;">
+              <button>레시피 보러 가기</button>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+          </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
