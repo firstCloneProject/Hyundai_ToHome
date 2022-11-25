@@ -8,9 +8,11 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 <!-- Link Swiper's CSS -->
+<link rel="icon" href="../img/favicon.ico" />
 <link rel="stylesheet"
 	href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" href="main.css" />
+<script type="text/javascript" src="main.js"></script>
 <!-- Demo styles -->
 </head>
 <body>
@@ -51,30 +53,51 @@
 					    }, function() {
 					        $(this).parents('ul.lnb').removeClass('on');
 					    });
-
 					    $('.exhibition-wrap, .brand-ct').hover(function(){
 					        $(this).parents('ul.lnb').addClass('on2');
 					    }, function() {
 					        $(this).parents('ul.lnb').removeClass('on2');
 					    });
 				  });
-
 					</script>
 					<!-- 카테고리 -->
-					<botton type="botton" class="btn-category">
-					"카테고리 전체보기"
-					</botton>
+					<botton type="botton" class="btn-category"> "카테고리 전체보기" </botton>
 					<ul class="gnb-list" id="homeGnbList">
-					<li><a href="">베스트</a></li>
-					<li><a href="">세일</a></li>
-					<li><a href="">신상품</a></li>
-					<li><a href="">매거진</a></li>
-					<li><a href="">선물하기</a></li>
-					<li><a href="">이벤트</a></li>
-					<li><a href=""><img src="img/esuper_logo.png" alt="현대식품관"></a></li>
+						<li><a href="">베스트</a></li>
+						<li><a href="">세일</a></li>
+						<li><a href="">신상품</a></li>
+						<li><a href="">매거진</a></li>
+						<li><a href="">선물하기</a></li>
+						<li><a href="">이벤트</a></li>
+						<li><a href=""><img src="img/esuper_logo.png" alt="현대식품관"></a></li>
 					</ul>
+					<div class="searcharea">
+						<form name="pdPcSearchForm" id="pdPcSearchForm" method="post">
+							<fieldset>
+								<legend class="hide">검색어 입력</legend>
+								<div class="form-entry exist search">
+									<input type="text" name="keyWord" title="검색어 입력">
+
+									<button type="button" class="btn-del" tabindex="-1"
+										style="display: block" onclick="reset">삭제</button>
+									<button type="button" class="btn-search" onclick="">검색</button>
+
+									<!-- 먼가 정보를 몰래줌 -->
+									<input type="text" name="searchTerm" class="hide"> <input
+										type="text" name="category" class="hide"> <input
+										type="text" name="pageNumber" class="hide"> <input
+										type="text" name="rowsPerPage" class="hide"> <input
+										type="text" name="tagNm" class="hide">
+							</fieldset>
+						</form>
+
+					</div>
+					<button type="button" class="btn-cart" onclick="linkToCart();">
+						<span>0</span>
+					</button>
 				</div>
 			</div>
+
 		</div>
 	</header>
 
@@ -90,7 +113,7 @@
 			<div class="swiper-slide">
 				<img src="img/egxhu.jpg">
 			</div>
-						<div class="swiper-slide">
+			<div class="swiper-slide">
 				<img src="img/emtzw.jpg">
 			</div>
 		</div>
@@ -120,7 +143,6 @@
           prevEl: ".swiper-button-prev",
         },
       });
-
     </script>
 </body>
 </html>

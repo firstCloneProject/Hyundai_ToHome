@@ -47,12 +47,12 @@ a {text-decoration: none;color: #101010;outline: none;}
         url("fonts/roboto-v18-latin-300.woff2") format("woff2"),
         url("fonts/roboto-v18-latin-300.woff") format("woff");
 }
-/* ì „ì²´ìš”ì†Œ */
-body {position: relative; font-family: "NotoSansKR", sans-serif, Malgungothic, "ë§‘ì€ê³ ë”•", Dotum, "ë‹ì›€";font-weight: 200;font-size: 15px;line-height: 1.6;color: #767572;letter-spacing: -0.025em;word-break: keep-all;word-wrap: break-word; margin: 0;padding: 0;}
+/* ÀüÃ¼¿ä¼Ò */
+body {position: relative; font-family: "NotoSansKR", sans-serif, Malgungothic, "¸¼Àº°íµñ", Dotum, "µ¸¿ò";font-weight: 200;font-size: 15px;line-height: 1.6;color: #767572;letter-spacing: -0.025em;word-break: keep-all;word-wrap: break-word; margin: 0;padding: 0;}
 h1,h2,h3,h4,h5,h6 {margin: 0;font-weight: 200;}
 ul, ol {list-style: none;margin: 0;padding: 0;}
 a {text-decoration: none;color: #101010;outline: none;}
-button {font-family: "NotoSansKR", sans-serif, Malgungothic, "ë§‘ì€ê³ ë”•", Dotum, "ë‹ì›€";cursor: pointer;padding: 0;border: none;letter-spacing:-0.025em;}
+button {font-family: "NotoSansKR", sans-serif, Malgungothic, "¸¼Àº°íµñ", Dotum, "µ¸¿ò";cursor: pointer;padding: 0;border: none;letter-spacing:-0.025em;}
 strong {font-weight: 600;}
 img {vertical-align: top;}
 button {background-color: transparent;outline: none;}
@@ -62,11 +62,11 @@ button:disabled,
 fieldset {margin: 0;padding: 0;border: none;}
 input, select {padding: 0;-webkit-border-radius: 0;}
 input:focus {outline: none;}
-input, textarea, select, tt, code, kbd, samp, pre {font-family: "NotoSansKR", sans-serif, Malgungothic, "ë§‘ì€ê³ ë”•", Dotum, "ë‹ì›€";}
+input, textarea, select, tt, code, kbd, samp, pre {font-family: "NotoSansKR", sans-serif, Malgungothic, "¸¼Àº°íµñ", Dotum, "µ¸¿ò";}
 .hide {position: absolute !important;left:-9999px;}
 input[type="text"], input[type="number"], input[type="password"], input[type="date"] {padding: 0 19px;width: 100%;height: 42px;line-height: 40px;font-size: 15px;color: #101010;border: 1px solid #dbd9d6;-webkit-appearance: none;}
 
-/* ìŠ¤ì™€ì´í¼ */
+/* ½º¿ÍÀÌÆÛ */
 .mainbanner{
     width: 1204px;
     height: 540px;
@@ -164,11 +164,11 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
 #header .gnbarea .popcategory .lnb-list > ul .depth2 a {position: relative;display: block;padding: 9px 40px 9px 19px;min-width: 100px;color: #101010;text-align: left;}
 #header .gnbarea .popcategory .lnb-list .lnb .depth1:hover > .depth2{display: block;}
 
-/* í…Œë‘ë¦¬ í¬ê¸°ì— ë§ê²Œ ë³€ê²½ */
+/* Å×µÎ¸® Å©±â¿¡ ¸Â°Ô º¯°æ */
 #header .gnbarea .popcategory .lnb-list > ul.lnb.on {width: 650px;overflow: visible;}
 #header .gnbarea .popcategory .lnb-list > ul.lnb.on2 {width: 200px;}
 #header .gnbarea .popcategory .lnb-list > .lnb.on .brand-wrap .depth2 {width: 450px;}
-/* gnblist ì„¤ì • */
+/* gnblist ¼³Á¤ */
 #header .gnbarea .gnb-list {padding: 0 260px;width: 100%;font-size: 0;text-align: center;}
 #header .gnbarea .gnb-list li {display: inline-block;margin:0 17px;}
 #header .gnbarea .gnb-list li a {color: #454545;font-size: 18px;vertical-align: middle;}
@@ -178,7 +178,7 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
 
 
 
-/* ì„œì¹˜ë°•ìŠ¤ */
+/* ¼­Ä¡¹Ú½º */
 #header .gnbarea .popcategory .lnb-list .lnb .depth1 .depth2 .depth3{position: absolute; width: 140px; left: 100%; top: 0;display: none;}
 #header .gnbarea .popcategory .lnb-list .lnb .depth1 .depth2 li:hover > .depth3{display: block;}
 
@@ -276,7 +276,7 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
 #footer .btn-top.scroll {display: block;}
 #footer .info .essential-info em {color: #aea7a2;margin-bottom: 15px;}
 
-/* ì„œì¹˜ë°•ìŠ¤ íŒì—…
+/* ¼­Ä¡¹Ú½º ÆË¾÷
 #header .gnbarea .searcharea .popsearch {position: absolute;top: 100%;right: 0;margin-top: 10px;}
 #header .gnbarea .searcharea .popsearch .defaultsearch {display: none;width: 500px;border:1px solid #454545;background-color: #fff;}
 #header .gnbarea .searcharea .popsearch .defaultsearch.scrollbox {max-height: 680px;}
@@ -297,8 +297,8 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
 #header .gnbarea .searcharea .popsearch .latelysearch .btns {padding: 17px 0 19px;text-align: right;}
 #header .gnbarea .searcharea .popsearch .latelysearch .btns label span {padding: 0;color: #aea7a2;font-size: 14px;}
 #header .gnbarea .searcharea .popsearch .latelysearch .btns label span:before {display: none;}
-#header .gnbarea .searcharea .popsearch .latelysearch .btns label span:after {content: " ì¼œê¸°";font-size: 14px;}
-#header .gnbarea .searcharea .popsearch .latelysearch .btns label input[type="checkbox"]:checked + span:after {content: " ë„ê¸°";}
+#header .gnbarea .searcharea .popsearch .latelysearch .btns label span:after {content: " ÄÑ±â";font-size: 14px;}
+#header .gnbarea .searcharea .popsearch .latelysearch .btns label input[type="checkbox"]:checked + span:after {content: " ²ô±â";}
 #header .gnbarea .searcharea .popsearch .latelysearch .btns .btn-del {margin-left: 30px;line-height: 22px;color: #aea7a2;font-size: 14px;}
 #header .gnbarea .searcharea .popsearch .bestsearch h3 {padding-top: 21px;}
 #header .gnbarea .searcharea .popsearch .bestsearch .ls {margin-top: 5px;}
@@ -324,9 +324,6 @@ input[type="text"], input[type="number"], input[type="password"], input[type="da
 #header .gnbarea .searcharea .popsearch .autosearch ul {padding: 20px 0 19px;border:1px solid #454545;}
 #header .gnbarea .searcharea .popsearch .autosearch li button {padding: 9px 28px 10px;color: #101010;}
 #header .gnbarea .searcharea .popsearch .autosearch li button span {font-weight: 600;} */
-
-
-
 
 
 

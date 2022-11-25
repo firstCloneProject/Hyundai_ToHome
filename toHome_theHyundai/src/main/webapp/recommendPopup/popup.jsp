@@ -10,8 +10,14 @@
   <title>Document</title>
   
   <link rel="stylesheet" type="text/css" href="popup.css">
+  <script type="text/javascript">
+		function showPopup(){
+			window.open("popup.html", "popup", "width=485, height=600, left=100, top=50");
+		}
+  	</script>
+  
 </head>
-<body>
+<body onLoad="showPopup()">
 	
 </body>
 </html>
