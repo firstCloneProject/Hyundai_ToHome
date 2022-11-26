@@ -1,5 +1,5 @@
 function linkToCart() {
-	location.href='../cart/cart.html';
+	location.href='cartController';
 }
 
 function showPopup() {

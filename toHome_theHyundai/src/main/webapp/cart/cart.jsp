@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ include file="./cartHeader.jsp" %>
-
+<link rel="stylesheet" type="text/css" href="cart.css">
 <div id="contents">
 	<div class="innercon">
 		<h2>장바구니</h2>
@@ -9,7 +12,7 @@
 		 <!-- 전체선택// -->
             <section class="cart-select">
                 <label><input type="checkbox" checked="checked" name="allItemSelect">
-                    <span>전체선택</span></label>
+                   <span>전체선택</span></label>
                 <ul class="btn-group">
                     <li>
                     	<!-- 삭제하는부분 javascript -->
@@ -35,23 +38,28 @@
 		 				</label>
 		 				
 		 				<div class="contr">
-		 					<a href="#">그 상품 테이블로 .. onclick 시</a>
-		 					<span class="info">
-		 						<div class="ea-area">
-		 							<!-- <input type="number" title="수량입력" name="ordQty" value="2" readonly="readonly"> -->
-		 							<button type="button" class="btn-down" onclick="changeOrdQtuDown(this);">"수량낮추기"</button>
-		 							<button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량올리기</button>
-		 						</div>
 		 					
-			 					<span class="txt-price">
-			 						<strong><em>할인된 가격 </em></strong>
-			 						<del>원래 가격</del>
-			 					</span>
-			 					
-			 					<div class="probtn">
-			 						<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
-			 					</div>
-		 					</span>
+		 						<c:forEach var="test" items="${test }">
+		 							<a href="#">${test.productId}</a>
+				 					<span class="info">
+				 						<div class="ea-area">
+				 							
+				 							<button type="button" class="btn-down" onclick="changeOrdQtuDown(this);">"수량낮추기"</button>
+				 							<div class="quantity">${test.quantity}</div>
+				 							<button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량올리기</button>
+				 						</div>
+				 					
+					 					<span class="txt-price">
+					 						<strong><em>할인된 가격 </em></strong>
+					 						<del>${test.price}</del>
+					 					</span>
+					 					
+					 					<div class="probtn">
+					 						<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
+					 					</div>
+				 					</span>
+				 				</c:forEach>
+				 			
 		 				</div>
 		 				</li>
 		 				
