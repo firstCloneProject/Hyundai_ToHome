@@ -1,3 +1,5 @@
+
+
 var swiper = new Swiper(".swiper-container", {
   centeredSlides: true,
   loop: true,
@@ -49,4 +51,4 @@ var swiper = new Swiper(".categoryswiper", {
 AOS.init({
   disableMutationObserver: true,
   offset: 100,
-})
+});
