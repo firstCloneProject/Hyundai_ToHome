@@ -50,10 +50,11 @@ public class TimesaleDAO extends HttpServlet {
 			while(rs.next()) {
 				String name =rs.getString(1);
 				int price = rs.getInt(2);
-				int sale = rs.getInt(3);
-				String comname = rs.getString(4);
-				String path = rs.getString(5);
-				ProductVO productVO = new ProductVO(name,price,sale,comname,path);
+				int priceOri = rs.getInt(3);
+				int sale = rs.getInt(4);
+				String comname = rs.getString(5);
+				String path = rs.getString(6);
+				ProductVO productVO = new ProductVO(name,price,priceOri,sale,comname,path);
 				productList.add(productVO); //오류가 났을 때 여길 수정하면 될수도....?
 			}
 			rs.close();

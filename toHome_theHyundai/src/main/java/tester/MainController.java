@@ -41,12 +41,14 @@ public class MainController extends HttpServlet {
 			List<ProductVO> saleProductList = timesaleDAO.list6Product();
 			List<ProductVO> ctgrProductList = categoryDAO.list6Product();
 			request.setAttribute("saleProductList", saleProductList);
-			request.setAttribute("ctgrProductList", ctgrProductList);
 			request.setAttribute("bannerList",li);
+			request.setAttribute("ctgrProductList", ctgrProductList);
 			nextPage = "main.jsp";
+			System.out.println(ctgrProductList.get(0).toString());
 		}else if (action.equals("")) {
 			
 		}
+		
 		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
 		dispatch.forward(request, response);
 	}

@@ -195,8 +195,8 @@ request.setCharacterEncoding("UTF-8");
 												</span>
 											</span> <strong class="txt-ti">[${pro.companyName}]${pro.productName }</strong>
 
-												<span class="txt-price"> <strong><em>${pro.productPrice }</em>원</strong>
-													<del>${pro.productPrice }</del>
+												<span class="txt-price"> <strong><em><fmt:formatNumber type="number" maxFractionDigits="3" value="${pro.productPrice-(pro.productPrice % 10)}" /></em>원</strong>
+													<del><fmt:formatNumber type="number" maxFractionDigits="3" value="${pro.productPriceOri }" /></del>
 											</span>
 											</a>
 										</div>
@@ -251,7 +251,7 @@ request.setCharacterEncoding("UTF-8");
 		<section class="innercon category aos-init aos-animate"
 			data-aos="fade up">
 			<h2 class="title">
-				<strong>곡물과 견과</strong> <a href="">곡물과 견과 전체보기</a>
+				<strong>${ctgrProductList[0].category }</strong> <a href="">${ctgrProductList[0].category } 전체보기</a>
 			</h2>
 			<div class="categoryswiper">
 				<div class="swiper-wrapper">
