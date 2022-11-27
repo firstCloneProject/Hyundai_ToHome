@@ -13,37 +13,47 @@ public class cartDAO {
 	public List<cartVO> selectCart() {
 		Connection conn = DBManager.getConnection();
 		List<cartVO> cartList = new ArrayList<cartVO>();
+		String customerId = null;
+		Integer productId = null;
+		String productName = null;
+		Integer price = null;
+		Integer salePercent = null;
+		String imagePath = null;
+		Integer remain = null;
+		String companyId = null;
+		Integer quantity = null;
+		
+
+		Integer salePrice = null;
+		Integer deliveryPrice = 3500;
+		Integer totalPrice = null;
+		Integer count = null;
+		
 		try {
 			System.out.println("selectCart() 들어옴");
-			CallableStatement cstmt = conn.prepareCall("select "
-					+ "cart.customerid, cart.productid, product_t.productname, product_t.price, "
-					+ "product_t.salepercent, product_t.remain, product_t.productcompanyid, cart.quantity "
-					+ "from cart join product_t on cart.productid = product_t.productid");
+			CallableStatement cstmt = conn.prepareCall("select products.productID, products.product_name, products.price, products.salepercent, products.imagepath, products.remain, products.company_companyid, carts.quantity "
+					+ "from carts join products on carts.product_productID = products.productid");
 			ResultSet rs = cstmt.executeQuery();
 			System.out.println(rs.getFetchSize());
 			while(rs.next()) {
-				cartVO CVO = new cartVO(null, null, null, null, null, null, null, null);
-				//String으로 하나씩 받아서 한번에 생성자로 저장
-				CVO.setCustomerId(rs.getString(1)); //customerid
-				CVO.setProductId(rs.getInt(2)); //productid
-				CVO.setProductName(rs.getString(3)); //productname
-				CVO.setPrice(rs.getInt(4));
-				CVO.setSalePercent(rs.getInt(5));
-				CVO.setRemain(rs.getInt(6));
-				CVO.setCompanyId(rs.getString(7));
-				CVO.setQuantity(rs.getInt(8));
+				//cartVO CVO = new cartVO(null, null, null, null, null, null, null, null);
+				//String으로 하나씩 받아서
+				//한번에 생성자로 저장
+				productId = rs.getInt(1);
+				productName = rs.getString(2);
+				price = rs.getInt(3);
+				salePercent = rs.getInt(4);
+				imagePath = rs.getString(5);
+				remain = rs.getInt(6);
+				companyId = rs.getString(7);
+				quantity = rs.getInt(8);
+				salePrice = price * salePercent / 100;
+				totalPrice = price - salePrice;
+				cartVO cvo = new cartVO(customerId, productId, productName, price, salePercent, imagePath, remain, companyId, quantity, salePrice, deliveryPrice, totalPrice, count);
+				cartList.add(cvo);
 				
-				System.out.println(rs.getString(1));
-				System.out.println(rs.getInt(2));
-				System.out.println(rs.getString(3));
-				System.out.println(rs.getInt(4));
-				System.out.println(rs.getInt(5));
-				System.out.println(rs.getInt(6));
-				System.out.println(rs.getString(7));
-				System.out.println(rs.getInt(8));
-
-				cartList.add(CVO);
 			}
+
 			
 		} catch (Exception e) {
 			e.printStackTrace();

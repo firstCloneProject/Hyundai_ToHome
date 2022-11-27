@@ -13,7 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/cartController")
 public class cartController extends HttpServlet {
 	
-    cartDAO cDao;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	cartDAO cDao;
     
     public void init() throws ServletException{
     	cDao = new cartDAO();

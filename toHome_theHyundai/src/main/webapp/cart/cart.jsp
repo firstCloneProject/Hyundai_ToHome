@@ -5,6 +5,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%@ include file="./cartHeader.jsp" %>
 <link rel="stylesheet" type="text/css" href="cart.css">
+<c:set var="sumPrice" value="0"/>
+<c:set var="sumSalePrice" value="0"/>
+<c:set var="sumTotalPrice" value="0"/>
 <div id="contents">
 	<div class="innercon">
 		<h2>장바구니</h2>
@@ -32,44 +35,68 @@
 		 			<ul class="product-list vertical"> <!-- 테이블 -->
 		 				<li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
 		 				<button type="button" class="btn-del" onclick="javascript:deleteBasketItem(this);">삭제</button>
-		 				<label class="thumb">
-		 					<input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
-		 					<span>사진경로</span> <!-- 사진 -->
-		 				</label>
 		 				
-		 				<div class="contr">
-		 					
-		 						<c:forEach var="test" items="${test }">
-		 							<a href="#">${test.productId}</a>
-				 					<span class="info">
-				 						<div class="ea-area">
-				 							
-				 							<button type="button" class="btn-down" onclick="changeOrdQtuDown(this);">"수량낮추기"</button>
-				 							<div class="quantity">${test.quantity}</div>
-				 							<button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량올리기</button>
-				 						</div>
-				 					
-					 					<span class="txt-price">
-					 						<strong><em>할인된 가격 </em></strong>
-					 						<del>${test.price}</del>
-					 					</span>
-					 					
-					 					<div class="probtn">
-					 						<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
+		 				
+		 				
+		 				<c:forEach var="test" items="${test}">
+								
+			 				<label class="thumb">
+			 					<input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
+			 					<span>${test.imagePath}</span> <!-- 사진 -->
+	
+			 				</label>
+			 				
+			 				<div class="contr">
+			 						<strong>${test.productId}</strong>
+			 						
+			 						<!-- <a href="#" onclick=""><strong>${test.productId}상품명</strong></a> -->
+			 							
+					 				<span class="info">
+					 					<div class="ea-area">
+					 							
+					 						<button type="button" class="btn-down" onclick="changeOrdQtuDown(this);">"수량낮추기"</button>
+					 						<div class="quantity">${test.quantity}</div>
+					 						<button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량올리기</button>
 					 					</div>
-				 					</span>
-				 				</c:forEach>
+					 					
+						 				<span class="txt-price">
+						 					<strong>원래 가격 ${test.price}</strong>
+						 					<c:set var="sumPrice" value="${sumPrice + test.price}"/>
+						 					
+						 					<strong>할인율 ${test.salePercent}</strong>
+						 					<strong><em>할인된 가격 </em></strong>
+						 					<del>${test.salePrice}</del>
+						 					<c:set var="sumSalePrice" value="${sumSalePrice + test.salePrice}"/>
+						 					
+						 					<strong><em>할인 후 가격 ${test.totalPrice}</em></strong>
+						 					<c:set var="sumTotalPrice" value = "${sumTotalPrice + test.totalPrice}"/>
+						 				</span>
+						 					
+						 				<div class="probtn">
+						 					<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
+						 				</div>
+					 				</span>
+				 		
 				 			
-		 				</div>
-		 				</li>
-		 				
-		 				<!-- 배송비 부분 -->
-		 				<li class="deliveryinfo" id = "deliveryinfo_1_DAWN" dlvdivision="1_DAWN" data-dlv_price="3500" data-nchg_dlv_cond_amt="50000">
-		 					<div>
-		 						<p id="dlvCostInf_1_DAWN">"배송비"<em>가격</em>"원(50,000원 이상 결제 시 무료)"</p>
-		 						
-		 					</div>
-		 				</li>
+			 				</div>
+			 				
+			 			</c:forEach>
+			 			
+			 			</li>
+			 			
+			 			
+			 			
+			 			
+			 			
+			 			<c:forEach var="test" items="${test}">	
+			 				<!-- 배송비 부분 -->
+			 				<li class="deliveryinfo" id = "deliveryinfo_1_DAWN" dlvdivision="1_DAWN" data-dlv_price="3500" data-nchg_dlv_cond_amt="50000">
+			 					<div>
+			 						<p id="dlvCostInf_1_DAWN">"배송비"<em>${test.deliveryPrice}</em>"원(50,000원 이상 결제 시 무료)"</p>
+			 						
+			 					</div>
+			 				</li>
+		 				</c:forEach>
 		 			</ul>
 		 		</div>
 	
@@ -96,12 +123,12 @@
 					<legend class="hide">결제내역</legend>
 					<dl class="orderprice">
 						<dt>총 상품금액</dt>
-						<dd><strong><em id="emPriceTotNrmlPrice">총실제가격</em>"원"</strong></dd>
+						<dd><strong><em id="emPriceTotNrmlPrice">총실제가격<c:out value="${sumPrice}"/></em>"원"</strong></dd>
 					</dl>
 					<dl class="minus">
 						<dt>총 할인금액</dt>
 						<dd>
-							<strong> <em id="emPriceFTotDcAmt">할인가격</em>원
+							<strong> <em id="emPriceFTotDcAmt"><c:out value="${sumSalePrice}"/></em>원
 							</strong>
 						</dd>
 					</dl>
@@ -119,7 +146,7 @@
 						<dt>총 결제예상금액</dt>
 
 						<dd>
-							<strong> <em id="emPriceFTotPayAmt">총 금액</em>원
+							<strong> <em id="emPriceFTotPayAmt">총 금액 <c:out value="${sumTotalPrice}"/></em>원
 							</strong>
 						</dd>
 					</dl>
