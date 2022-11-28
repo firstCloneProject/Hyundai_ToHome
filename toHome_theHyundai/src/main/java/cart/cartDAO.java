@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import db.DBManager;
+import oracle.jdbc.OracleTypes;
 
 public class cartDAO {
 	// 1. 데이터베이스 연결
 	public List<cartVO> selectCart() {
 		Connection conn = DBManager.getConnection();
 		List<cartVO> cartList = new ArrayList<cartVO>();
-		String customerId = null;
+		String customerId = "dkssud2";
 		Integer productId = null;
 		String productName = null;
 		Integer price = null;
@@ -30,15 +31,20 @@ public class cartDAO {
 		Integer count = null;
 		
 		try {
+			String runSP = "{call p_CART(?,?) }";
 			System.out.println("selectCart() 들어옴");
-			CallableStatement cstmt = conn.prepareCall("select products.productID, products.product_name, products.price, products.salepercent, products.imagepath, products.remain, products.company_companyid, carts.quantity "
-					+ "from carts join products on carts.product_productID = products.productid");
-			ResultSet rs = cstmt.executeQuery();
-			System.out.println(rs.getFetchSize());
+			CallableStatement cstmt = conn.prepareCall(runSP);
+			
+			cstmt.setString(1, customerId);
+			cstmt.registerOutParameter(2, OracleTypes.CURSOR);
+			cstmt.executeQuery();
+			ResultSet rs = (ResultSet)cstmt.getObject(2);
+			
 			while(rs.next()) {
 				//cartVO CVO = new cartVO(null, null, null, null, null, null, null, null);
 				//String으로 하나씩 받아서
 				//한번에 생성자로 저장
+				System.out.println(rs.getInt(1));
 				productId = rs.getInt(1);
 				productName = rs.getString(2);
 				price = rs.getInt(3);
@@ -49,8 +55,8 @@ public class cartDAO {
 				quantity = rs.getInt(8);
 				salePrice = price * salePercent / 100;
 				totalPrice = price - salePrice;
-				cartVO cvo = new cartVO(customerId, productId, productName, price, salePercent, imagePath, remain, companyId, quantity, salePrice, deliveryPrice, totalPrice, count);
-				cartList.add(cvo);
+				cartVO cvo1 = new cartVO(customerId, productId, productName, price, salePercent, imagePath, remain, companyId, quantity, salePrice, deliveryPrice, totalPrice, count);
+				cartList.add(cvo1);
 				
 			}
 
@@ -60,5 +66,10 @@ public class cartDAO {
 		}
 		
 		return cartList;
+	}
+
+	private cartVO cartVO() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

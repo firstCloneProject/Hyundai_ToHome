@@ -38,9 +38,6 @@
 		 				<li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
 		 				<button type="button" class="btn-del" onclick="javascript:deleteBasketItem(this);">삭제</button>
 		 				
-		 				
-		 				
-		 				
 								
 			 				<label class="thumb">
 			 					<input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
@@ -81,12 +78,7 @@
 			 			</li>
 			 			</c:forEach>
 			 			
-			 			
-			 			
-			 			
-			 			
-			 			
-			 			
+
 		
 			 				<!-- 배송비 부분 -->
 			 				<li class="deliveryinfo" id = "deliveryinfo_1_DAWN" dlvdivision="1_DAWN" data-dlv_price="3500" data-nchg_dlv_cond_amt="50000">
