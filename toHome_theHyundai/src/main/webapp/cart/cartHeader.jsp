@@ -23,7 +23,7 @@
 
     <title>장바구니</title>
 
-    <link rel="stylesheet" type="text/css" href="cart.css">
+    <link rel="stylesheet" type="text/css" href="cart/cart.css">
 </head>
 
 <body>
@@ -34,7 +34,8 @@
 
             <div class="toparea">
                 <h1>
-                    <a href="/front/dp/dpa/dawnHome.do"><img src="../img/tohomemain.png" alt="현대식품관"></a>
+                    <!-- <a href="/front/dp/dpa/dawnHome.do"> -->
+                    <img src="cart/tohomemain.png">
                 </h1>
 
                 <div class="util">

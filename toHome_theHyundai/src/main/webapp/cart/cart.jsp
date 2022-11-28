@@ -3,7 +3,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<%@ include file="./cartHeader.jsp" %>
+<%@ include file="/cart/cartHeader.jsp" %>
+
 <link rel="stylesheet" type="text/css" href="cart.css">
 <c:set var="sumPrice" value="0"/>
 <c:set var="sumSalePrice" value="0"/>
@@ -33,21 +34,22 @@
 		 		<!-- <legend class="tit toggle-ti">새벽배송</legend> -->
 		 		<div class="cont" style="display: block;">
 		 			<ul class="product-list vertical"> <!-- 테이블 -->
+		 				<c:forEach var="test" items="${test}">
 		 				<li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
 		 				<button type="button" class="btn-del" onclick="javascript:deleteBasketItem(this);">삭제</button>
 		 				
 		 				
 		 				
-		 				<c:forEach var="test" items="${test}">
+		 				
 								
 			 				<label class="thumb">
 			 					<input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
-			 					<span>${test.imagePath}</span> <!-- 사진 -->
+			 					<span><img src="${test.imagePath}"/></span> <!-- 사진 -->
 	
 			 				</label>
 			 				
 			 				<div class="contr">
-			 						<strong>${test.productId}</strong>
+			 						<strong>${test.productName}</strong>
 			 						
 			 						<!-- <a href="#" onclick=""><strong>${test.productId}상품명</strong></a> -->
 			 							
@@ -59,44 +61,41 @@
 					 						<button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량올리기</button>
 					 					</div>
 					 					
-						 				<span class="txt-price">
-						 					<strong>원래 가격 ${test.price}</strong>
-						 					<c:set var="sumPrice" value="${sumPrice + test.price}"/>
-						 					
-						 					<strong>할인율 ${test.salePercent}</strong>
-						 					<strong><em>할인된 가격 </em></strong>
-						 					<del>${test.salePrice}</del>
-						 					<c:set var="sumSalePrice" value="${sumSalePrice + test.salePrice}"/>
-						 					
-						 					<strong><em>할인 후 가격 ${test.totalPrice}</em></strong>
-						 					<c:set var="sumTotalPrice" value = "${sumTotalPrice + test.totalPrice}"/>
-						 				</span>
-						 					
-						 				<div class="probtn">
-						 					<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
-						 				</div>
-					 				</span>
+					 					<span class="txt-price">
+					 						<strong>${test.totalPrice}</strong>
+					 						<c:set var="sumTotalPrice" value="${sumtotalPrice + test.totalPrice}"/>
+					 						
+					 						<del>${test.price}</del>
+					 						<c:set var="sumPrice" value="${sumPrice + test.price}"/>
+					 						
+											<div class="probtn">
+						 						<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
+						 					</div>
+					 					</span>
+					 					
+					 					
+						 				
 				 		
 				 			
-			 				</div>
-			 				
+			 				</div><br>
+			 			</li>
 			 			</c:forEach>
 			 			
-			 			</li>
 			 			
 			 			
 			 			
 			 			
 			 			
-			 			<c:forEach var="test" items="${test}">	
+			 			
+		
 			 				<!-- 배송비 부분 -->
 			 				<li class="deliveryinfo" id = "deliveryinfo_1_DAWN" dlvdivision="1_DAWN" data-dlv_price="3500" data-nchg_dlv_cond_amt="50000">
 			 					<div>
-			 						<p id="dlvCostInf_1_DAWN">"배송비"<em>${test.deliveryPrice}</em>"원(50,000원 이상 결제 시 무료)"</p>
+			 						<p id="dlvCostInf_1_DAWN">"배송비"<em>${test[0].deliveryPrice}</em>"원(50,000원 이상 결제 시 무료)"</p>
 			 						
 			 					</div>
 			 				</li>
-		 				</c:forEach>
+
 		 			</ul>
 		 		</div>
 	
@@ -177,4 +176,4 @@
 	</div>
 </div>
 
-<%@ include file="./cartFooter.jsp" %>
+<%@ include file="/cart/cartFooter.jsp" %>

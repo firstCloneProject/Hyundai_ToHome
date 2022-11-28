@@ -18,7 +18,7 @@
 
         <div class="info">
             <div class="inner">
-                <div class="logo">현대식품관</div>
+                <div class="logo"><img src="/img/logo_footer.png">현대식품관</div>
                 <div id="fnDawnBizpCrstList">
                     <strong>(주)현대백화점</strong><br>
                     <span>대표이사 : 김형종 외 2인</span>
