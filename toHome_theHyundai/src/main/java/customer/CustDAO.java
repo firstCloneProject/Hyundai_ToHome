@@ -29,65 +29,8 @@ public class CustDAO {
 			e.printStackTrace();
 		}
 	}
-//	public String loginCustomer(String cusotmerId, String _pwd) {
-//		System.out.println("loginCustomer ³Ñ¾î¿È");
-//
-//		String runSP = "{ call logincustomer(?, ?) }";
-//		String idid = null;
-//		try {
-//			Connection conn = DBConnection.getConnection();
-//			CallableStatement callableStatement = conn.prepareCall(runSP);
-//			
-//			//String customerId = custVO.
-//			callableStatement.setString(1, cusotmerId);
-//			callableStatement.setString(2, _pwd);
-//			callableStatement.registerOutParameter(1, java.sql.Types.VARCHAR);
-//			callableStatement.executeQuery();
-//			
-//			idid = callableStatement.getString(1);
-//			System.out.println(callableStatement);
-//			
-//			//conn.close();
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return idid;
-//	}
-//	
-//	public CustVO getCustomer(String customerId) {       
-//	    CustVO custVO= null;
-//	    String runSP = "{select * from customer where customerId=?}";
-//	     
-//	    Connection conn = null;
-//	    CallableStatement callableStatement = null;
-//	    ResultSet rs = null;
-//
-//	    try {
-//	      conn = DBConnection.getConnection(); //ÀÌ°Å ¹Ù²ã¾ß ÇÒ ¼öµµ
-//		  callableStatement = conn.prepareCall(runSP);
-//
-//	      callableStatement.setString(1, customerId);
-//	      rs = callableStatement.executeQuery();
-//	      if(rs.next()){
-//	        custVO = new CustVO();
-//	        custVO.setCustomerId(rs.getString("id"));
-//	        custVO.setPwd(rs.getString("pwd"));
-//	        custVO.setName(rs.getString("name"));
-//	        custVO.setAddress(rs.getString("address"));
-//	        custVO.setBirth(rs.getString("birth"));
-//	        custVO.setTelNo(rs.getString("telNo"));
-//	        custVO.setJoinDate(rs.getString("joinDate"));
-//	        
-//	      } 
-//	    } catch (Exception e) {
-//	      e.printStackTrace();
-//	    } finally {
-//	      DBConnection.close(conn, callableStatement, rs);
-//	    }
-//	    return custVO;
-//	  }
 	
-	public CustVO  loginCustomer (String cusotmerId, String _pwd) {
+	public CustVO loginCustomer (String cusotmerId, String _pwd) {
 		System.out.println("loginCustomer ³Ñ¾î¿È");
 		
 		String runSP = "{ call logincustomer(?, ?,?) }";

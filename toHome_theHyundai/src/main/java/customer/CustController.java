@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.nonage.controller.action.ArrayList;
+import com.nonage.dao.CartDAO;
+import com.nonage.dao.OrderDAO;
+import com.nonage.dto.CartVO;
+import com.nonage.dto.CustVO;
+
 @WebServlet("/cust/*")
 public class CustController extends HttpServlet {
 	CustDAO custDAO;
@@ -59,7 +65,21 @@ public class CustController extends HttpServlet {
 			CustVO custVO = new CustVO(customerId, pwd, name, birth, address, telNo, joinDate, gender);
 			custDAO.addCustomer(custVO);
 			request.setAttribute("msg", "addCustomer");
-			nextPage = "/login/welcome.jsp";
+			nextPage = "/main.jsp";
+		}else if(action.equals("/insertOrder.do")) {
+		    HttpSession session = request.getSession();
+		    CustVO loginUser = (CustVO) session.getAttribute("loginUser");
+		    if (loginUser == null) {
+		      nextPage = "../login/login.jsp";
+		    } else {
+		      CartDAO cartDAO = CartDAO.getInstance();
+		      ArrayList<CartVO> cartList = cartDAO.listCart(loginUser.getCustomerId());
+		      
+		      OrderDAO orderDAO = OrderDAO.getInstance();      
+		      
+		      int maxOseq=orderDAO.insertOrder(cartList, loginUser.getCustomerId());
+		    //  nextPage = "NonageServlet?command=order_list&oseq="+maxOseq;
+			
 		
 		}else if(action.equals("/loginCustomer.do")){
 			HttpSession session = request.getSession();
@@ -86,6 +106,13 @@ public class CustController extends HttpServlet {
 			}else {
 				nextPage ="/toHome_theHyundai/login/loginFail.jsp";
 			}
+			
+		}else if(action.equals("/logOutCustomer.do")){
+			nextPage="../main.jsp";
+			HttpSession session=request.getSession(false);
+		    if(session!=null){
+		      session.invalidate();
+		    }    
 			
 		}
 		System.out.println("next페이지는" +nextPage);

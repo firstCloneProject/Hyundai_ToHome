@@ -30,7 +30,7 @@
 						<%-- <c:when test="${isLogOn == true and not empty loginUser}">	 --%>				
 						<c:when test="${empty sessionScope.loginUser}">
 					        <div class="util" id="dawnLoginN" style="display: hidden">
-								<a href="login/login.jsp">로그인</a> <a href="toHome_theHyundai/login/join.jsp">회원가입</a> <a href="">마이페이지</a>
+								<a href="login/login.jsp">로그인</a> <a href="login/join.jsp">회원가입</a> <a href="">마이페이지</a>
 								<a href="">고객센터</a>
 							</div>	
 	       								
@@ -38,12 +38,12 @@
 	       				<c:otherwise>
 							
 							<div class="util" id="dawnLoginY" style="display: hidden">
-						  		<li>
-				            		${sessionScope.loginUser.name}(${sessionScope.loginUser.customerId})	  
-						  		</li>
-				            <button type="button" class="btn-linedown btn-personal" id="memNmText"></button>  <!-- memNmText -->
+						  		<%-- <li>
+				            		(${sessionScope.loginUser.customerId})	  
+						  		</li> --%>
+				            <button type="button" class="btn-linedown btn-personal" id="memNmText">${sessionScope.loginUser.name}님! 반갑습니다.</button>  <!-- memNmText -->
 			            		
-			            		<a href="dAO">로그아웃</a>
+			            		<a href="${pageContext.request.contextPath}/cust/logOutCustomer.do">로그아웃</a>
 			             	 	<a href="회원정보 변경">회원정보변경</a>
 			            		<a href="">마이페이지</a>
 			            		<a href="">고객센터</a>
@@ -69,7 +69,7 @@
 								</li>
 								<li class="depth1">
 									<button type="button" onclick="">곡물 · 견과</button>
-									<ul class="depth2">
+									<ul cla    ss="depth2">
 										<li><a href="">전체보기</a></li>
 										<li><a href="">쌀</a></li>
 										<li><a href="">잡곡</a></li>
