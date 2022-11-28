@@ -10,10 +10,15 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import db.DBConnection;
+import oracle.jdbc.OracleCallableStatement;
+import oracle.jdbc.internal.OracleTypes;
+
 
 public class CustDAO {
 	private DataSource dataFactory;
 	private Connection conn;
+
+    private OracleCallableStatement cstmt;
 
 	public CustDAO() {
 		try {
@@ -24,63 +29,118 @@ public class CustDAO {
 			e.printStackTrace();
 		}
 	}
-	public String loginCustomer(String cusotmerId, String _pwd) {
+//	public String loginCustomer(String cusotmerId, String _pwd) {
+//		System.out.println("loginCustomer 넘어옴");
+//
+//		String runSP = "{ call logincustomer(?, ?) }";
+//		String idid = null;
+//		try {
+//			Connection conn = DBConnection.getConnection();
+//			CallableStatement callableStatement = conn.prepareCall(runSP);
+//			
+//			//String customerId = custVO.
+//			callableStatement.setString(1, cusotmerId);
+//			callableStatement.setString(2, _pwd);
+//			callableStatement.registerOutParameter(1, java.sql.Types.VARCHAR);
+//			callableStatement.executeQuery();
+//			
+//			idid = callableStatement.getString(1);
+//			System.out.println(callableStatement);
+//			
+//			//conn.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return idid;
+//	}
+//	
+//	public CustVO getCustomer(String customerId) {       
+//	    CustVO custVO= null;
+//	    String runSP = "{select * from customer where customerId=?}";
+//	     
+//	    Connection conn = null;
+//	    CallableStatement callableStatement = null;
+//	    ResultSet rs = null;
+//
+//	    try {
+//	      conn = DBConnection.getConnection(); //이거 바꿔야 할 수도
+//		  callableStatement = conn.prepareCall(runSP);
+//
+//	      callableStatement.setString(1, customerId);
+//	      rs = callableStatement.executeQuery();
+//	      if(rs.next()){
+//	        custVO = new CustVO();
+//	        custVO.setCustomerId(rs.getString("id"));
+//	        custVO.setPwd(rs.getString("pwd"));
+//	        custVO.setName(rs.getString("name"));
+//	        custVO.setAddress(rs.getString("address"));
+//	        custVO.setBirth(rs.getString("birth"));
+//	        custVO.setTelNo(rs.getString("telNo"));
+//	        custVO.setJoinDate(rs.getString("joinDate"));
+//	        
+//	      } 
+//	    } catch (Exception e) {
+//	      e.printStackTrace();
+//	    } finally {
+//	      DBConnection.close(conn, callableStatement, rs);
+//	    }
+//	    return custVO;
+//	  }
+	
+	public CustVO  loginCustomer (String cusotmerId, String _pwd) {
 		System.out.println("loginCustomer 넘어옴");
-
-		String runSP = "{ call logincustomer(?, ?) }";
-		String idid = null;
-		try {
+		
+		String runSP = "{ call logincustomer(?, ?,?) }";
+//		String idid = null;
+	    CustVO custVO= null;
+	        	    
+	    try {
 			Connection conn = DBConnection.getConnection();
 			CallableStatement callableStatement = conn.prepareCall(runSP);
 			
 			//String customerId = custVO.
 			callableStatement.setString(1, cusotmerId);
 			callableStatement.setString(2, _pwd);
-			callableStatement.registerOutParameter(1, java.sql.Types.VARCHAR);
-			callableStatement.executeQuery();
+			callableStatement.registerOutParameter(3,OracleTypes.CURSOR);
+//			callableStatement.registerOutParameter(1, java.sql.Types.VARCHAR);
+			callableStatement.execute();
 			
-			idid = callableStatement.getString(1);
-			System.out.println(callableStatement);
+			ResultSet rs = (ResultSet)callableStatement.getObject(3);
+		//	ResultSet rs = ((OracleCallableStatement) callableStatement).getCursor(3);
+			
+//		    rs = callableStatement.executeQuery();
+			System.out.println("gg");
+			System.out.println("rs는 뭐야" + rs);
+		    if(rs.next()){
+		    	System.out.println("dd");
+		    	
+			    custVO = new CustVO();
+			    custVO.setCustomerId(rs.getString(1));
+			    
+			    System.out.println("id는 "+rs.getString (1));
+			    
+			    custVO.setPwd(rs.getString(2));
+			    custVO.setName(rs.getString(3));
+			    custVO.setBirth(rs.getString(4));
+			    custVO.setAddress(rs.getString(5));
+			    custVO.setTelNo(rs.getString(6));
+			    custVO.setJoinDate(rs.getString(7));
+			    custVO.setGender(rs.getString(8));
+			    
+	
+			    
+			    } else {System.out.println("암것두 없음");
+			    }
+//			callableStatement.executeQuery();
+			
+	//		idid = callableStatement.getString(1);
 			
 			//conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return idid;
+		return custVO;
 	}
-	
-	public CustVO getCustomer(String customerId) {       
-	    CustVO custVO= null;
-	    String runSP = "{select * from customer where customerId=?}";
-	     
-	    Connection conn = null;
-	    CallableStatement callableStatement = null;
-	    ResultSet rs = null;
-
-	    try {
-	      conn = DBConnection.getConnection(); //이거 바꿔야 할 수도
-		  callableStatement = conn.prepareCall(runSP);
-
-	      callableStatement.setString(1, customerId);
-	      rs = callableStatement.executeQuery();
-	      if(rs.next()){
-	        custVO = new CustVO();
-	        custVO.setCustomerId(rs.getString("id"));
-	        custVO.setPwd(rs.getString("pwd"));
-	        custVO.setName(rs.getString("name"));
-	        custVO.setAddress(rs.getString("address"));
-	        custVO.setBirth(rs.getString("birth"));
-	        custVO.setTelNo(rs.getString("telNo"));
-	        custVO.setJoinDate(rs.getString("joinDate"));
-	        
-	      } 
-	    } catch (Exception e) {
-	      e.printStackTrace();
-	    } finally {
-	      DBConnection.close(conn, callableStatement, rs);
-	    }
-	    return custVO;
-	  }
 
 	public void addCustomer(CustVO custVO) {
 

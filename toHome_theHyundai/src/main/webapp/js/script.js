@@ -23,7 +23,30 @@ var swiper = new Swiper(".swiper-container", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
-  },
+  }
 
   // And if we need scrollbar
+});
+
+var swiper = new Swiper(".timesaleswiper", {
+  centeredSlides: true,
+  loop: true,
+  spaceBetween: 150,
+
+  // Navigation arrows
+
+  // And if we need scrollbar
+  loop:true,
+
+  autoResize: false,
+});
+
+var swiper = new Swiper(".categoryswiper", {
+  spaceBetween: 150,
+  loop: true
+});
+
+AOS.init({
+  disableMutationObserver: true,
+  offset: 100,
 });

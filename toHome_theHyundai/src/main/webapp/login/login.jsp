@@ -26,7 +26,7 @@
             <div class="innercon">
                 <h2>로그인</h2>
                 <p class="txt">현대식품관에 오신 것을 환영합니다.</p>
-                <form name="memberLoginForm" action="/Hyundai/cust/loginCustomer.do" method="post">
+                <form name="memberLoginForm" action="${pageContext.request.contextPath}/cust/loginCustomer.do" method="post">
                     <fieldset class="form-field">
                         <legend class="hide">로그인</legend> <!-- 이거는 꼭 필요한가? -->
                         <ul>
