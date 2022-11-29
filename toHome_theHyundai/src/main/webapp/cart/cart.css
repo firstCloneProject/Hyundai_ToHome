@@ -94,6 +94,12 @@ textarea {
     border: 1px solid #ccc;
     -webkit-border-radius: 0;
 }
+.cart-select {
+    position: relative;
+    margin-top: 40px;
+    padding-bottom: 18px;
+    text-align: right;
+}
 
 button {
     font-family: "NotoSansKR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
@@ -188,6 +194,14 @@ select,
 textarea,
 tt {
     font-family: "NotoSansKR", sans-serif, Malgungothic, "맑은고딕", Dotum, "돋움";
+}
+
+.deleteButton {    
+	display: inline-block;
+	text-align : center;
+	float : right;
+	color: #767572;
+    font-size: 15px;
 }
 
 button {
@@ -17407,6 +17421,7 @@ video::-webkit-media-text-track-display {
     width: 340px;
     background-color: #fff;
     z-index: 2;
+    border: 1px #ff6913 solid;
 }
 
 .order .rightarea .price-field dl {
@@ -17653,7 +17668,7 @@ video::-webkit-media-text-track-display {
     z-index: 2;
 }
 
-.order.cart .cart-select {
+.cart-select {
     position: relative;
     margin-top: 40px;
     padding-bottom: 18px;

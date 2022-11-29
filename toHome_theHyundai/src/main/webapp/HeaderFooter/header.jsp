@@ -144,7 +144,7 @@
 						</form>
 
 					</div>
-					<button type="button" class="btn-cart" onclick="linkToCart();">
+					<button type="button" class="btn-cart" onclick="linkToPopUp();">
 						<span>0</span>
 					</button>
 			</div>

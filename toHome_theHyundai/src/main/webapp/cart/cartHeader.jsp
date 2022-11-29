@@ -37,17 +37,19 @@
                     <!-- <a href="/front/dp/dpa/dawnHome.do"> -->
                     <img src="cart/tohomemain.png">
                 </h1>
-
-                <div class="util">
-
-                    <!-- util : 로그인 후// -->
-                    <a href="/front/cua/logout.do" class="active">로그아웃</a>
-                    <a href="/front/cua/mypage/updateMember.do">회원정보변경</a>
-                    <!-- //util : 로그인 후 -->
-
-                    <a href="/front/mp/mpa/selectMyPageMain.do">마이페이지</a>
-                    <a href="/front/dp/dpf/customerCenterMain.do">고객센터</a>
-                </div>
+				 <div class="util" id="dawnLoginY" style="display: hidden">
+                          <p>
+                              (${sessionScope.loginUser.customerId})     
+                          </p>
+                        <button type="button" class="btn-linedown btn-personal" id="memNmText">${sessionScope.loginUser.name}님! 반갑습니다.</button>  <!-- memNmText -->
+                           
+                           <a href="${pageContext.request.contextPath}/cust/logOutCustomer.do">로그아웃</a>
+                             <a href="회원정보 변경">회원정보변경</a>
+                           <a href="">마이페이지</a>
+                           <a href="">고객센터</a>
+                  </div>   
+				
+          
 
             </div>
 

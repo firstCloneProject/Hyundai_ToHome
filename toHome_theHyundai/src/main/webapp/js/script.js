@@ -69,9 +69,17 @@ for(var j = 0; j < target.length; j++){
     this.parentNode.parentNode.style.display = 'none';
   });
 }
-function linkToCart() {
+
+function linkToPopUp() {
+	location.href='popupController';
+
+}
+
+function popupClose(){
 	location.href='cartController';
-  	window.open("recommendPopup/popup.html", "popup", "width=485, height=600, left=100, top=50");
-	
+}
+
+function linkToOrder(){
+	location.href = '/order/order.html';
 }
 

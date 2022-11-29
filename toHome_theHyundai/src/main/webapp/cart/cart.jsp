@@ -3,44 +3,44 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
-<%@ include file="/cart/cartHeader.jsp" %>
-
+<%@ include file="cartHeader.jsp" %>
+<script type="text/javascript" src="js/script.js"></script>
 <link rel="stylesheet" type="text/css" href="cart.css">
 <c:set var="sumPrice" value="0"/>
 <c:set var="sumSalePrice" value="0"/>
 <c:set var="sumTotalPrice" value="0"/>
 <div id="contents">
-	<div class="innercon">
+	<div class="innercon" style="position:relative; margin:0 ato; width:1204px;">
 		<h2>장바구니</h2>
 		
 		 <!-- 전체선택// -->
             <section class="cart-select">
-                <label><input type="checkbox" checked="checked" name="allItemSelect">
-                   <span>전체선택</span></label>
-                <ul class="btn-group">
-                    <li>
-                    	<!-- 삭제하는부분 javascript -->
-                        <button type="button" onclick="javascript:deleteSelectedBasket();">삭제</button>
-                    </li>
-
-                </ul>
-            </section>
+				 <label><button>전체선택</button></label>
+				    <ul class="btn-group">
+				        <li><button type="button" onclick="javascript:deleteSelectedBasket();">삭제</button></li>
+				        <li><button type="button" onclick="javascript:deleteSoldoutBaskt();">품절삭제</button></li>
+				        <li><button type="button" onclick="javascript:clickAddLikeItem();">좋아요담기</button></li>
+				    </ul>
+			</section>
          <!-- 전체선택// -->
 		
 		
 		 <!-- 보여지는 테이블 부분 -->
 		 <form id="frmbasktInfo">
 		 	<fieldset class="list-field toggle active">
+		 	
 		 		<!-- <legend class="tit toggle-ti">새벽배송</legend> -->
 		 		<div class="cont" style="display: block;">
 		 			<ul class="product-list vertical"> <!-- 테이블 -->
+		 				
 		 				<c:forEach var="test" items="${test}">
 		 				<li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
+		 				<input type="checkbox" />
 		 				<button type="button" class="btn-del" onclick="javascript:deleteBasketItem(this);">삭제</button>
 		 				
 								
 			 				<label class="thumb">
-			 					<input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
+			 				<input type="checkbox"/>
 			 					<span><img src="${test.imagePath}"/></span> <!-- 사진 -->
 	
 			 				</label>
@@ -65,6 +65,8 @@
 					 						<del>${test.price}</del>
 					 						<c:set var="sumPrice" value="${sumPrice + test.price}"/>
 					 						
+					 						<!-- ${test.salePrice} -->
+					 						<c:set var="sumSalePrice" value="${sumSalePrice + test.salePrice}"/>
 											<div class="probtn">
 						 						<button type="button" class="btn orange btn-buy" onclick="">바로구매</button>
 						 					</div>
@@ -94,7 +96,7 @@
 		 	</fieldset>
 		 	
 		 	<!--  오른쪽 배너 -->
-		 	<div class="rightarea" style="position: absolute; inset:71px 0px auto auto;">
+		 	<div class="rightarea">
 		 		<!--  <fieldset class="delivery-field" style="display:none;">
 					<legend class="hide">배송지 정보</legend>
 
@@ -114,12 +116,12 @@
 					<legend class="hide">결제내역</legend>
 					<dl class="orderprice">
 						<dt>총 상품금액</dt>
-						<dd><strong><em id="emPriceTotNrmlPrice">총실제가격<c:out value="${sumPrice}"/></em>"원"</strong></dd>
+						<dd><strong><em id="emPriceTotNrmlPrice"><c:out value="${sumPrice}"/></em> 원</strong></dd>
 					</dl>
 					<dl class="minus">
 						<dt>총 할인금액</dt>
 						<dd>
-							<strong> <em id="emPriceFTotDcAmt"><c:out value="${sumSalePrice}"/></em>원
+							<strong> <em id="emPriceFTotDcAmt"><c:out value="${sumSalePrice}"/></em> 원
 							</strong>
 						</dd>
 					</dl>
@@ -127,7 +129,7 @@
 					<dl>
 						<dt>총 배송비</dt>
 						<dd>
-							<strong> <em id="emPriceFTotDlvPrice">배송비</em>원
+							<strong> <em id="emPriceFTotDlvPrice"></em>3500 원
 							</strong>
 						</dd>
 					</dl>
@@ -137,13 +139,13 @@
 						<dt>총 결제예상금액</dt>
 
 						<dd>
-							<strong> <em id="emPriceFTotPayAmt">총 금액 <c:out value="${sumTotalPrice}"/></em>원
+							<strong> <em id="emPriceFTotPayAmt"><c:out value="${sumTotalPrice}"/></em>원
 							</strong>
 						</dd>
 					</dl>
 				</fieldset>
 				
-				<button type="button" class="btn fill bigger orange btn-order" onclick="GA_Event('PC_장바구니', '주문하기', '주문하기'); orderCheck();">주문하기<em id="emTotalItemCnt">메뉴개수 2</em></button>
+				<button type="button" class="btn fill bigger orange btn-order" onclick="linkToOrder()">주문하기<em id="emTotalItemCnt">메뉴개수 2</em></button>
 				
 		 	</div>
 		 	
@@ -168,4 +170,4 @@
 	</div>
 </div>
 
-<%@ include file="/cart/cartFooter.jsp" %>
+<%@ include file="/HeaderFooter/footer.jsp" %>
