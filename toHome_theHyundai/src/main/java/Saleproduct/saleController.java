@@ -29,9 +29,9 @@ public class saleController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		
 		List<saleVO> listsales = sDAO.listsales(); //회원정보 조회
-		for(int i = 0; i < listsales.size(); i++) {
-			System.out.print(listsales.toString());
-		}
+//		for(int i = 0; i < listsales.size(); i++) {
+//			System.out.print(listsales.toString());
+//		}
 		request.setAttribute("listsales", listsales);
 		RequestDispatcher dispatch = request.getRequestDispatcher("/Sale/Sale.jsp");
 		dispatch.forward(request, response);

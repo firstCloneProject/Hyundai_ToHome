@@ -1,7 +1,7 @@
 package Saleproduct;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class saleDAO {
 	
 	private DataSource dataFactory;
 	private Connection conn;
-	private PreparedStatement pstmt;
+	private CallableStatement cstmt;
 
 	public saleDAO() {
 		try {
@@ -38,11 +38,11 @@ public class saleDAO {
 		List<saleVO> listsales = new ArrayList<saleVO>();
 		try {
 			conn = dataFactory.getConnection();
-			String query = "select product_name,salepercent,price,imegepath from products;"; //이밎 경로,제품이름,세일 가격,가격
+			String query = ""; //이밎 경로,제품이름,세일 가격,가격
 			// {call product_call.productdetail}
 			System.out.println(query);
-			pstmt = conn.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery();
+			cstmt = conn.prepareCall(query);
+			ResultSet rs = cstmt.executeQuery();
 			while (rs.next())
 			{
 			
@@ -50,17 +50,16 @@ public class saleDAO {
 				System.out.println(rs.getString("salepercent"));
 				System.out.println(rs.getString("imagepath"));
 				System.out.println(rs.getString("price"));
-				System.out.println(rs.getString("imagepath"));
+		
 			
 				String product_name = rs.getString(1);  //product_name
 				Integer salepercent = rs.getInt(2); //salepercent
-				String imagepath = rs.getString(3); //imagepath 첫번재 줄의 3번재 컬럼 
+				 //imagepath 첫번재 줄의 3번재 컬럼 
+				String imagepath = rs.getString(3);
 				Integer price = rs.getInt(4); //price
-//				
-				
 				
 				//saleVO listsale = new saleVO(product_name, salepercent, price);
-				saleVO listsale = new saleVO(salepercent, product_name, price,imagepath);
+				saleVO listsale = new saleVO(product_name,salepercent,imagepath,price);
 				listsales.add(listsale); 
 			}
 			

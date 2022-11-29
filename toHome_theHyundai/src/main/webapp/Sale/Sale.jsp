@@ -176,7 +176,6 @@
 			<ul class="product-list" id="ulItemList">
 				<!--1번-->
 				<c:forEach var="test" items="${listsales}">
-					
 					<li>
 						<a href="#">
 							<span class="thumb"> 
@@ -190,6 +189,7 @@
 									</div>
 									
 							</span>
+							<b class="txt-ti ellipsis">${test.product_name}</b>
 		                         <!--<button insert>-->
 						</a> 
 						

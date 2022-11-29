@@ -1,11 +1,13 @@
 package Saleproduct;
 
 public class saleVO {
-
-	private Integer salepercent;
+//product_name,salepercent,imagepath,price
+	
 	private String product_name;
-	private Integer price;
+	private Integer salepercent;
 	private String imagepath;
+	private Integer price;
+
 	
 	public saleVO() {
 		System.out.println("saleVO생성자 호출");	
@@ -17,12 +19,12 @@ public class saleVO {
 	
 	
 
-	public saleVO(Integer salepercent, String product_name, Integer price, String imagepath) {
+	public saleVO( String product_name,Integer salepercent, String imagepath,Integer price) {
 		super();
-		this.salepercent = salepercent;
 		this.product_name = product_name;
-		this.price = price;
+		this.salepercent = salepercent;
 		this.imagepath=imagepath;
+		this.price = price;
 	}
 
 
@@ -66,6 +68,19 @@ public class saleVO {
 	}
 
 
+	public String getImagepath() {
+		return imagepath;
+	}
+
+
+
+
+
+
+
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
+	}
 
 
 
@@ -102,19 +117,6 @@ public class saleVO {
 
 
 
-	public String getImagepath() {
-		return imagepath;
-	}
-
-
-
-
-
-
-
-	public void setImagepath(String imagepath) {
-		this.imagepath = imagepath;
-	}
 
 
 	
