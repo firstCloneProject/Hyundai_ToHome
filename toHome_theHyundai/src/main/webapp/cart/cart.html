@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+
+<head>
+    <style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+
+
+    <title>장바구니</title>
+
+    <link rel="stylesheet" type="text/css" href="cart.css">
+</head>
+
+<body>
+	<div id="wrap" class="order cart">
+    <header id="header" class="short">
+
+        <div class="inner">
+
+            <div class="toparea">
+                <h1>
+                    <a href="/front/dp/dpa/dawnHome.do"><img src="../img/tohomemain.png" alt="현대식품관"></a>
+                </h1>
+
+                <div class="util">
+
+                    <!-- util : 로그인 후// -->
+                    <a href="/front/cua/logout.do" class="active">로그아웃</a>
+                    <a href="/front/cua/mypage/updateMember.do">회원정보변경</a>
+                    <!-- //util : 로그인 후 -->
+
+                    <a href="/front/mp/mpa/selectMyPageMain.do">마이페이지</a>
+                    <a href="/front/dp/dpf/customerCenterMain.do">고객센터</a>
+                </div>
+
+            </div>
+
+        </div>
+    </header>
+
+
+
+<!--  여기  -->
+
+
+    <div id="contents">
+
+        <div class="innercon">
+            <h2>장바구니</h2>
+
+            <!-- 전체선택// -->
+            <section class="cart-select">
+                <label><input type="checkbox" checked="checked" name="allItemSelect">
+                    <span>전체선택</span></label>
+                <ul class="btn-group">
+                    <li>
+                        <button type="button" onclick="javascript:deleteSelectedBasket();">삭제</button>
+                    </li>
+
+                </ul>
+            </section>
+            <!-- 전체선택// -->
+
+            <form id="frmBasktInfo">
+                <input type="hidden" name="basktGbcd" value="01">
+
+                <!-- 새벽 배송// -->
+                <fieldset class="list-field toggle active">
+                    <legend class="tit toggle-ti">새벽배송<em>2</em>
+                    </legend>
+                    <div class="cont" style="display: block;">
+                        <ul class="product-list vertical">
+
+                            <li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
+                                <button type="button" class="btn-del"
+                                    onclick="javascript:deleteBasketItem(this);">삭제</button>
+                                <label class="thumb">
+                                    <input type="checkbox" name="itemSelect" checked="checked" value="S02208119207||N|">
+                                    <span><img
+                                            src="https://tohomeimage.thehyundai.com/PD/PDImages/S/3/2/7/8809428830723_01.jpg"
+                                            alt="[소들녘] 로얄살치살 150g"
+                                            onerror="this.src='/UIUX/w/pjtCom/images/common/noimage_120x144.jpg'"></span>
+                                    <input type="hidden" name="slitmCd" value="S02208119207">
+                                    <input type="hidden" name="dispSlitmNm" value="[소들녘] 로얄살치살 150g">
+                                    <input type="hidden" name="pckgSlitmCd" value="">
+                                    <input type="hidden" name="rsvOrdYn" value="N">
+                                    <input type="hidden" name="rsvDt" value="">
+                                    <input type="hidden" name="rsvSellEndDt" value="">
+                                    <input type="hidden" name="venCd" value="A10269">
+                                    <input type="hidden" name="sectId" value="">
+                                    <input type="hidden" name="dptsBrnCd" value="190">
+                                    <input type="hidden" name="cldbagItemYn" value="N">
+                                    <input type="hidden" name="btnWishidx" value="0">
+                                    <input type="hidden" name="venNm" value="한무쇼핑(주)목동점">
+                                    <input type="hidden" name="brndCd" value="132259">
+                                    <input type="hidden" name="brndNm" value="소들녘">
+                                    <input type="hidden" name="mdCd" value="1004">
+                                    <input type="hidden" name="mdNm" value="정육">
+                                    <input type="hidden" name="dptsBrnNm" value="(주)현대백화점">
+                                    <input type="hidden" name="itemTypeGbnm" value="일반상품">
+                                    <input type="hidden" name="itemCsfPath" value="배송/축산/축산가공/양념육_소">
+                                    <input type="hidden" name="hrisPrdtCd" value="8809428830723">
+                                    <input type="hidden" name="dispOptNm" value="[소들녘] 로얄살치살 150g">
+                                </label>
+                                <div class="contr">
+
+                                    <a href="/front/pd/pdd/productDetail.do?slitmCd=S02208119207"
+                                        onclick="GA_odCartClickEcomm(this);">
+                                        <strong class="txt-ti ellipsis">${productName}</strong>
+                                    </a>
+
+                                    <span class="info">
+                                        <div class="ea-area">
+                                            <input type="number" title="수량 입력" name="ordQty" value="2"
+                                                readonly="readonly">
+                                            <button type="button" class="btn-down" onclick="changeOrdQtyDown(this);">수량
+                                                낮추기</button>
+                                            <button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량
+                                                올리기</button>
+                                            <input type="hidden" name="minBuyQty" value="1">
+                                            <input type="hidden" name="maxBuyQty" value="99">
+                                            <input type="hidden" name="pckgMinBuyQty" value="0">
+                                            <input type="hidden" name="pckgMaxBuyQty" value="0">
+                                            <input type="hidden" name="stckQty" value="680">
+                                        </div>
+                                        <span class="txt-price">
+                                            <strong>
+                                                <em>28,800</em>원</strong>
+
+                                            <del>32,000</del>
+
+                                            <input type="hidden" name="nrmlPrc" value="16000">
+                                            <input type="hidden" name="sellPrc" value="14400">
+                                            <input type="hidden" name="dcAmt" value="1600">
+
+                                        </span>
+                                        <div class="probtn">
+
+                                            <button type="button" id="btnWish0" class="btn-wish active"
+                                                onclick="fnPopupWishUpdate(this);">좋아요</button>
+                                            <button type="button" class="btn orange btn-buy"
+                                                onclick="GA_Event('PC_장바구니', '바로구매', '바로구매_[소들녘] 로얄살치살 150g'); orderCheck(this);">바로구매</button>
+                                        </div>
+                                    </span>
+                                </div>
+
+                            </li>
+
+                            <li dlvdivision="1_DAWN" data-dlvc_pay_gbcd="10">
+                                <button type="button" class="btn-del"
+                                    onclick="javascript:deleteBasketItem(this);">삭제</button>
+                                <label class="thumb">
+                                    <input type="checkbox" name="itemSelect" checked="checked" value="S02110093454||N|">
+                                    <span><img
+                                            src="https://tohomeimage.thehyundai.com/PD/PDImages/S/0/6/6/2801001057660_00.jpg"
+                                            alt="[새벽시장] 장희딸기 500g (2단)"
+                                            onerror="this.src='/UIUX/w/pjtCom/images/common/noimage_120x144.jpg'"></span>
+                                    <input type="hidden" name="slitmCd" value="S02110093454">
+                                    <input type="hidden" name="dispSlitmNm" value="[새벽시장] 장희딸기 500g (2단)">
+                                    <input type="hidden" name="pckgSlitmCd" value="">
+                                    <input type="hidden" name="rsvOrdYn" value="N">
+                                    <input type="hidden" name="rsvDt" value="">
+                                    <input type="hidden" name="rsvSellEndDt" value="">
+                                    <input type="hidden" name="venCd" value="A10173">
+                                    <input type="hidden" name="sectId" value="">
+                                    <input type="hidden" name="dptsBrnCd" value="190">
+                                    <input type="hidden" name="cldbagItemYn" value="N">
+                                    <input type="hidden" name="btnWishidx" value="1">
+                                    <input type="hidden" name="venNm" value="(주)후르츠사계절">
+                                    <input type="hidden" name="brndCd" value="109547">
+                                    <input type="hidden" name="brndNm" value="후르츠사계절">
+                                    <input type="hidden" name="mdCd" value="1002">
+                                    <input type="hidden" name="mdNm" value="농산">
+                                    <input type="hidden" name="dptsBrnNm" value="(주)현대백화점">
+                                    <input type="hidden" name="itemTypeGbnm" value="일반상품">
+                                    <input type="hidden" name="itemCsfPath" value="배송/과일/국산과일/딸기">
+                                    <input type="hidden" name="hrisPrdtCd" value="2801001057660">
+                                    <input type="hidden" name="dispOptNm" value="[새벽시장] 장희딸기 500g (2단)">
+                                </label>
+                                <div class="contr">
+
+                                    <a href="/front/pd/pdd/productDetail.do?slitmCd=S02110093454"
+                                        onclick="GA_odCartClickEcomm(this);">
+                                        <strong class="txt-ti ellipsis">[새벽시장] 장희딸기 500g (2단)</strong>
+                                    </a>
+
+                                    <span class="txt-stock">남은 수량 : 4개</span>
+
+                                    <span class="info">
+                                        <div class="ea-area">
+                                            <input type="number" title="수량 입력" name="ordQty" value="3"
+                                                readonly="readonly">
+                                            <button type="button" class="btn-down" onclick="changeOrdQtyDown(this);">수량
+                                                낮추기</button>
+                                            <button type="button" class="btn-up" onclick="changeOrdQtyUp(this);">수량
+                                                올리기</button>
+                                            <input type="hidden" name="minBuyQty" value="1">
+                                            <input type="hidden" name="maxBuyQty" value="999">
+                                            <input type="hidden" name="pckgMinBuyQty" value="0">
+                                            <input type="hidden" name="pckgMaxBuyQty" value="0">
+                                            <input type="hidden" name="stckQty" value="4">
+                                        </div>
+                                        <span class="txt-price">
+                                            <strong>
+                                                <em>71,250</em>원</strong>
+
+                                            <del>75,000</del>
+
+                                            <input type="hidden" name="nrmlPrc" value="25000">
+                                            <input type="hidden" name="sellPrc" value="23750">
+                                            <input type="hidden" name="dcAmt" value="1250">
+
+                                        </span>
+                                        <div class="probtn">
+
+                                            <button type="button" id="btnWish" class="btn-wish active"
+                                                onclick="fnPopupWishUpdate(this);">좋아요</button>
+                                            <button type="button" class="btn orange btn-buy"
+                                                onclick="GA_Event('PC_장바구니', '바로구매', '바로구매_[새벽시장] 장희딸기 500g (2단)'); orderCheck(this);">바로구매</button>
+                                        </div>
+                                    </span>
+                                </div>
+
+                            </li>
+
+                            <!-- 배송 안내// -->
+                            <li class="deliveryinfo" id="deliveryinfo_1_DAWN" dlvdivision="1_DAWN" data-dlv_price="3500"
+                                data-nchg_dlv_cond_amt="50000">
+                                <div>
+                                    <p id="dlvCostInf_1_DAWN">배송비<em>0</em>원(50,000원 이상 결제 시 무료)</p>
+
+                                    <button type="button" class="btn-round"
+                                        onclick="showBundleItemListPop(this, 'DA', '', 'N', 'N');" "=" ">묶음배송 상품 보기</button>
+
+                                        </div>
+                                    </li>
+                                    <!-- //배송 안내 -->
+
+                                </ul>
+                            </div>
+                        </fieldset>
+                        <!-- //새벽배송 -->
+
+                        <div class=" rightarea" style="position: absolute; inset: 71px 0px auto auto;">
+                                        <fieldset class="delivery-field" style="display:none;">
+                                            <legend class="hide">배송지 정보</legend>
+
+                                            <!-- 배송지 정보// -->
+                                            <button type="button" class="btn-round"
+                                                onclick="fnShippingList('cart',null,false, $(this).data('dstn_seq'));"
+                                                data-dstn_seq="0000000001">배송지 변경</button>
+                                            <p class="txt">
+                                                기본배송지
+                                                <strong>경기도 시흥시</strong>
+                                            </p>
+                                            <!-- //배송지 정보 -->
+
+                                        </fieldset>
+
+                                        <!-- 결제내역// -->
+                                        <fieldset class="price-field">
+                                            <legend class="hide">결제내역</legend>
+                                            <dl class="orderprice">
+                                                <dt>총 상품금액</dt>
+                                                <dd>
+                                                    <strong>
+                                                        <em id="emPriceFTotNrmlPrice">107,000</em>원</strong>
+                                                </dd>
+                                            </dl>
+                                            <dl class="minus">
+                                                <dt>총 할인금액</dt>
+                                                <dd>
+                                                    <strong>
+                                                        <em id="emPriceFTotDcAmt">6,950</em>원</strong>
+                                                </dd>
+                                            </dl>
+                                            <dl>
+                                                <dt>총 배송비</dt>
+                                                <dd>
+                                                    <strong>
+                                                        <em id="emPriceFTotDlvPrice">0</em>원</strong>
+                                                </dd>
+                                            </dl>
+
+                                            <p class="txt">주문 결제 시 배송지에 따라 배송비가 상이할 수 있습니다.</p>
+
+                                            <dl class="total">
+                                                <dt>총 결제예상금액</dt>
+
+                                                <dd>
+                                                    <strong>
+                                                        <em id="emPriceFTotPayAmt">100,050</em>원</strong>
+                                                </dd>
+                                            </dl>
+                                        </fieldset>
+                                        <!-- 결제내역// -->
+                                        <button type="button" class="btn fill bigger orange btn-order"
+                                            onclick="GA_Event('PC_장바구니', '주문하기', '주문하기'); orderCheck();">주문하기<em
+                                                id="emTotalItemCnt">2</em>
+                                        </button>
+
+                                        <!-- 업셀링 배너 -->
+
+                                        <script type="text/javascript">
+                                            $(document).ready(function () { });
+                                        </script>
+
+                                        <div class="contarea promotion-field ">
+
+                                            <div class="cont">
+                                                <a href="#"
+                                                    onclick="GA_Event('PC_장바구니', '업셀링_배너', '백화점카드 행사 (11.21-11.27)');"><img
+                                                        src="https://tohomeimage.thehyundai.com/DP/DP001/2022/11/18/212229/PC1.png"></a>
+                                            </div>
+
+                                        </div>
+
+                                </div>
+            </form>
+
+            <section class="cart-info infotxt">
+                <strong>주문 안내</strong>
+                <ul>
+                    <li>장바구니에 담긴 상품은 최대 60일간 보관됩니다.(로그인 기준)</li>
+                    <li>패키지/딜 종료 시 해당 상품은 자동 삭제됩니다.</li>
+                    <li>상품을 장기간 보관하시려면 "좋아요"를 눌러주십시오.</li>
+                    <li>장바구니에 최대 100개 상품을 담을 수 있습니다.</li>
+                </ul>
+            </section>
+            <!-- 주문 안내// -->
+        </div>
+
+    </div>
+
+    <footer id="footer">
+        <div class="util">
+            <div class="inner">
+                <a href="/front/dp/dpf/companyIntro.do" class="btn-tohome"
+                    onclick="GA_Event('PC_공통', '푸터_메뉴', '브랜드소개');">브랜드소개</a>
+                <a href="/front/dp/dpf/serviceTos.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '이용약관');">이용약관</a>
+                <a href="/front/dp/dpf/personalInfoPolicy.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '개인정보처리방침');">
+                    <strong>개인정보처리방침</strong>
+                </a>
+                <a href="/front/dp/dpf/youthPolicy.do" onclick="GA_Event('PC_공통', '푸터_메뉴', '청소년보호정책');">청소년보호정책</a>
+                <a href="/front/dp/dpf/imagingDevicePolicy.do"
+                    onclick="GA_Event('PC_공통', '푸터_메뉴', '영상기기운영방침');">영상기기운영방침</a>
+
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="inner">
+                <div class="logo">현대식품관</div>
+                <div id="fnDawnBizpCrstList">
+                    <strong>(주)현대백화점</strong><br>
+                    <span>대표이사 : 김형종 외 2인</span>
+                    <span>
+                        주소 : 서울 강남구 테헤란로98길 12 (대치동) 현대백화점</span><br>전화 : 02-1800-9549<br>이메일 :
+                    tohome@thehyundai.com<br>사업자 등록번호 : 211-87-21455<a href="#"
+                        onclick="javascript:fnAppLoad('http://www.ftc.go.kr/bizCommPop.do?wrkr_no=2118721455');return false;">사업자등록확인</a><br>통신판매업자
+                    신고번호 : 2010-서울강남-01882<br>
+                    <p class="essential-info">
+                        <em>현대식품관 투홈의 개별 판매자가 등록한 상품(브랜드직송) 상품에 대한 광고, 상품주문, 배송, 환불의 의무와 책임은 각 판매자가 부담하고,<br>현대식품관 투홈은
+                            통신판매 중개자로서의 의무와 책임을 다합니다.</em><br>고객님의 안전거래를 위해 현금결제 시 KG이니시스 구매안전 서비스를 이용하실 수 있습니다.<button
+                            type="button" class="confirm-btn" onclick="fn.popupOpen('#guaranteePopup')" ;="">서비스 가입사실
+                            확인</button>
+                    </p>
+                    <small class="copyright">Copyright © Hyundai Department Store. All rights reserved.</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- topbtn// -->
+        <button type="button" class="btn-top" onclick="GA_Event('PC_공통', 'TOP', 'TOP');"
+            style="right: 489px; bottom: 50px;">TOP</button>
+        <!-- //topbtn -->
+    </footer>
+
+    </div>
+
+</body>
+
+</html>

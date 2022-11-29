@@ -39,7 +39,7 @@ public class CategoryDAO extends HttpServlet {
     }
 
     public List<ProductVO> list6Product(){
-    	String runSP = "{ call pro_select_product_by_category_6(?) }";
+    	String runSP = "{ call product_call.category_6(?)}";
     	List<ProductVO> productList = new ArrayList();
     	try {
     		conn = dataFactory.getConnection();
@@ -48,14 +48,15 @@ public class CategoryDAO extends HttpServlet {
 			cstmt.executeQuery();
 			ResultSet rs = (ResultSet)cstmt.getObject(1);
 			while(rs.next()) {
-				String name =rs.getString(1);
-				int price = rs.getInt(2);
-				int priceOri = rs.getInt(3);
-				int sale = rs.getInt(4);
-				String comname = rs.getString(5);
-				String path = rs.getString(6);
-				String category = rs.getString(7);
-				ProductVO productVO = new ProductVO(name,price,priceOri,sale,comname,path,category);
+				String id = rs.getString(1);
+				String name =rs.getString(2);
+				int price = rs.getInt(3);
+				int priceOri = rs.getInt(4);
+				int sale = rs.getInt(5);
+				String comname = rs.getString(6);
+				String path = rs.getString(7);
+				String category = rs.getString(8);
+				ProductVO productVO = new ProductVO(id, name,price,priceOri,sale,comname,path,category);
 				productList.add(productVO); //오류가 났을 때 여길 수정하면 될수도....?
 			}
 			rs.close();

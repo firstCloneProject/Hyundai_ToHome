@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
 <title>새벽투홈</title>
@@ -13,6 +15,8 @@
 <!-- AOS 라이브러리 불러오기-->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<link rel="stylesheet" type="text/css" href="css/member.min.css">
+<link rel="stylesheet" type="text/css" href="css/common.min.css">
 
 </head>
 
@@ -25,25 +29,30 @@
 						<a href=""> <img src="img/header_logo_freex34.png" alt="현대식품관" />
 						</a>
 					</h1>
-					<!--로그인 전-->
-					<div class="util" id="dawnLoginN" style="display: hidden">
-						<a href="로그인 DAO">로그인</a> <a href="회원정보 변경">회원가입</a> <a href="">마이페이지</a>
-						<a href="">고객센터</a>
-					</div>
-					<!--로그인 후-->
-					<!-- <div class="util" id="dawnLoginY" style="display: hidden">
-              <button
-                type="button"
-                class="btn-linedown btn-personal"
-                id="memNmText"
-              ></button>
-              <a href="로그아웃 DAO">로그아웃</a>
-              <a href="회원정보 변경">회원정보변경</a>
-              <a href="">마이페이지</a>
-              <a href="">고객센터</a>
-            </div> -->
-				</div>
-				<!-- 두번째 줄  -->
+					<c:choose>
+						<%-- <c:when test="${isLogOn == true and not empty loginUser}">	 --%>				
+						<c:when test="${empty sessionScope.loginUser}">
+					        <div class="util" id="dawnLoginN" style="display: hidden">
+								<a href="login/login.jsp">로그인</a> <a href="login/join.jsp">회원가입</a> <a href="">마이페이지</a>
+								<a href="">고객센터</a>
+							</div>	
+	       								
+						</c:when>
+	       				<c:otherwise>
+							
+							<div class="util" id="dawnLoginY" style="display: hidden">
+						  		<%-- <li>
+				            		(${sessionScope.loginUser.customerId})	  
+						  		</li> --%>
+				            <button type="button" class="btn-linedown btn-personal" id="memNmText">${sessionScope.loginUser.name}님! 반갑습니다.</button>  <!-- memNmText -->
+			            		
+			            		<a href="${pageContext.request.contextPath}/cust/logOutCustomer.do">로그아웃</a>
+			             	 	<a href="회원정보 변경">회원정보변경</a>
+			            		<a href="">마이페이지</a>
+			            		<a href="">고객센터</a>
+					        </div>	
+				        </c:otherwise>       
+       				</c:choose>
 				<nav class="gnbarea">
 
 					<button type="button" class="btn-category">카테고리 전체보기</button>
@@ -135,7 +144,7 @@
 						</form>
 
 					</div>
-					<button type="button" class="btn-cart" onclick="">
+					<button type="button" class="btn-cart" onclick="linkToCart();">
 						<span>0</span>
 					</button>
 			</div>

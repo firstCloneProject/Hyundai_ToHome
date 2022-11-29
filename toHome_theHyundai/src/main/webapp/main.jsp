@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%-- <%@ include file="HeaderFooter/header.jsp"%> --%>
-<jsp:include page="HeaderFooter/header.jsp"></jsp:include>
+
+<%@ include file="HeaderFooter/header.jsp"%>
+<%-- <jsp:include page="HeaderFooter/header.jsp"></jsp:include> --%>
 <link rel="stylesheet" href="css/main.css">
+
 <script defer type="text/javascript" src="js/script.js"></script>
 	<div id="contents">
 		<section class="mainbanner">
@@ -44,7 +44,7 @@
 								<c:when test="${!empty saleProductList}">
 									<c:forEach var="pro" items="${saleProductList }">
 										<div class="swiper-slide">
-											<a href=""> <span class="thumb"> <img
+											<a href="main/pDetail.do?ProductID=${pro.productID }"> <span class="thumb"> <img
 													src="${pro.imagePath}" alt=""> <span class="badge">
 														<strong>${pro.salePercent}%</strong>
 												</span>
@@ -69,7 +69,7 @@
 		<section class="innercon exhibition aos-init aos-animate">
 			<ul class="exhibition-ban">
 				<li data-aos="fade up"><a href=""><img
-						src="/img/banner.jpg" alt=""></a></li>
+						src="img/banner1.jpg" alt=""></a></li>
 				<li data-aos="fade up"><a href=""><img
 						src="img/banner2.jpg" alt=""> </a></li>
 			</ul>
@@ -95,7 +95,7 @@
 							<c:choose>
 								<c:when test="${!empty ctgrProductList}">
 									<c:forEach var="pro" items="${ctgrProductList }">
-										<li><a href=""> <img src="${pro.imagePath }" alt="">
+										<li><a href="main/pDetail.do?productID=${pro.productID }"> <img src="${pro.imagePath }" alt="">
 												<strong class="txt-ti ellipsis">[${pro.companyName }] ${pro.productName }</strong>
 										</a> <span class="info"> <span class="txt-prcie"> <strong>
 														<em>${pro.productPrice }</em> 원
@@ -105,42 +105,6 @@
 									</c:forEach>
 								</c:when>
 							</c:choose>
-							
-							<li><a href=""> <img src="/img/12.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 세절 200g</strong>
-							</a> <span class="info"> <span class="txt-prcie"> <strong>
-											<em>24,500</em> 원
-									</strong>
-								</span>
-							</span></li>
-							<li><a href=""> <img src="/img/13.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 불고기용 200g</strong>
-							</a> <span class="info"> <span class="txt-prcie"> <strong>
-											<em>74,500</em> 원
-									</strong>
-								</span>
-							</span></li>
-							<li><a href=""> <img src="/img/14.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 등심구이용 200g</strong>
-							</a> <span class="info"> <span class="txt-prcie"> <strong>
-											<em>44,500</em> 원
-									</strong>
-								</span>
-							</span></li>
-							<li><a href=""> <img src="/img/15.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 채끝살 200g</strong>
-							</a> <span class="info"> <span class="txt-prcie"> <strong>
-											<em>52,500</em> 원
-									</strong>
-								</span>
-							</span></li>
-							<li><a href=""> <img src="/img/16.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 안심구이용 200g</strong>
-							</a> <span class="info"> <span class="txt-prcie"> <strong>
-											<em>62,500</em> 원
-									</strong>
-								</span>
-							</span></li>
 						</ul>
 					</div>
 				</div>
@@ -155,5 +119,5 @@
 	</div>
 
 	</div>
-<jsp:include page="HeaderFooter/footer.jsp"></jsp:include>
-<%-- <%@ include file="HeaderFooter/footer.jsp"%> --%>
+<%-- <jsp:include page="HeaderFooter/footer.jsp"></jsp:include> --%>
+<%@ include file="HeaderFooter/footer.jsp"%>

@@ -18,7 +18,6 @@ public class BannerDAO extends HttpServlet {
 	private DataSource dataFactory;
 	private Connection conn;
 	private CallableStatement cstmt;
-	private PreparedStatement pstmt;
 	
     public BannerDAO() {
     	try {
@@ -39,14 +38,14 @@ public class BannerDAO extends HttpServlet {
 			conn = dataFactory.getConnection();
 			String query = "select * from banner";
 			System.out.println(query);
-			pstmt = conn.prepareStatement (query);
-			ResultSet rs = pstmt.executeQuery();
+			cstmt = conn.prepareCall(query) ;
+			ResultSet rs = cstmt.executeQuery();
 			while(rs.next()) {
 				String url = rs.getString("url");
 				li.add(url);
 			}
 			rs.close();
-			pstmt.close();
+			cstmt.close();
 			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();

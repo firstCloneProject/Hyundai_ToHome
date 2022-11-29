@@ -15,16 +15,14 @@ import javax.servlet.http.HttpServletResponse;
 import tester.BannerDAO;
 import tester.CategoryDAO;
 
-@WebServlet("/main")
+@WebServlet("/main/*")
 public class MainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	BannerDAO bannerDAO;
-	TimesaleDAO timesaleDAO;
-	CategoryDAO categoryDAO;
+	ProductDAO productDAO;
 	public void init() throws ServletException {
 		bannerDAO = new BannerDAO();
-		timesaleDAO = new TimesaleDAO();
-		categoryDAO = new CategoryDAO();
+		productDAO = new ProductDAO();
 	}
 	
 
@@ -36,16 +34,26 @@ public class MainController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		String action = request.getPathInfo();
 		String contextPath = request.getContextPath();
+		System.out.println("action " + action);
+		System.out.println("contextPath " + contextPath);
+		System.out.println("hi");
 		if (action == null) {
 			List<String> li = bannerDAO.ListBanner();
-			List<ProductVO> saleProductList = timesaleDAO.list6Product();
-			List<ProductVO> ctgrProductList = categoryDAO.list6Product();
+			List<ProductVO> saleProductList = productDAO.list6Product();
+			List<ProductVO> ctgrProductList = productDAO.list6Category();
 			request.setAttribute("saleProductList", saleProductList);
 			request.setAttribute("bannerList",li);
 			request.setAttribute("ctgrProductList", ctgrProductList);
 			nextPage = "main.jsp";
-			System.out.println(ctgrProductList.get(0).toString());
-		}else if (action.equals("")) {
+		}else if (action.equals("/pDetail.do")) {
+			
+			String id = request.getParameter("ProductID");
+			ProductVO li = productDAO.Detail(id);
+			System.out.println( li.toString());
+			request.setAttribute("ProductDetail", li);
+			nextPage = "ProductDetail.jsp";		
+		}else if (action.equals("/ProductDetail.jsp")) {
+			System.out.println("helloooooo");
 			
 		}
 		
