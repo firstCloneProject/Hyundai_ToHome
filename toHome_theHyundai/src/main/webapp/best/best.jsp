@@ -30,7 +30,7 @@
 
 <link rel="stylesheet" href="popup.css">
 
-<title>세일</title>
+<title>베스트</title>
 
 
 </head>

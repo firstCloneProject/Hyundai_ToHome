@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import oracle.jdbc.OracleTypes;
+
 
 
 public class saleDAO {
@@ -38,11 +40,17 @@ public class saleDAO {
 		List<saleVO> listsales = new ArrayList<saleVO>();
 		try {
 			conn = dataFactory.getConnection();
-			String query = ""; //이밎 경로,제품이름,세일 가격,가격
-			// {call product_call.productdetail}
+			String query = "{call sale_list(?)}";
+			CallableStatement cstmt =conn.prepareCall(query);
+			cstmt.registerOutParameter(1,OracleTypes.CURSOR);
+//			System.out.println(cstmt.);
+			// {call product_call.productdetail
+			cstmt.executeQuery();
 			System.out.println(query);
-			cstmt = conn.prepareCall(query);
-			ResultSet rs = cstmt.executeQuery();
+//			cstmt = conn.prepareCall(query);\
+			
+			
+			ResultSet rs = (ResultSet)cstmt.getObject(1);
 			while (rs.next())
 			{
 			
@@ -50,7 +58,8 @@ public class saleDAO {
 				System.out.println(rs.getString("salepercent"));
 				System.out.println(rs.getString("imagepath"));
 				System.out.println(rs.getString("price"));
-		
+				//System.out.println(rs.getInt("vcnt"));
+				
 			
 				String product_name = rs.getString(1);  //product_name
 				Integer salepercent = rs.getInt(2); //salepercent
@@ -64,7 +73,7 @@ public class saleDAO {
 			}
 			
 			rs.close();
-			pstmt.close();
+			cstmt.close();
 			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
