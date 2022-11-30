@@ -1,14 +1,46 @@
 package Saleproduct;
 
 public class saleVO {
-//product_name,salepercent,imagepath,price
+
 	
 	private String product_name;
 	private Integer salepercent;
+	public Integer getSalepercent() {
+		return salepercent;
+	}
+
+
+
+
+
+
+
+	public void setSalepercent(Integer salepercent) {
+		this.salepercent = salepercent;
+	}
+
+
+
+
+
+
+
 	private String imagepath;
 	private Integer price;
-
 	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
 	public saleVO() {
 		System.out.println("saleVO생성자 호출");	
 	}
@@ -26,28 +58,6 @@ public class saleVO {
 		this.imagepath=imagepath;
 		this.price = price;
 	}
-
-
-
-
-
-
-
-	public Integer getSalepercent() {
-		return salepercent;
-	}
-
-
-
-
-
-
-
-	public void setSalepercent(Integer salepercent) {
-		this.salepercent = salepercent;
-	}
-
-
 
 
 

@@ -13,11 +13,8 @@ import javax.sql.DataSource;
 
 import oracle.jdbc.OracleTypes;
 
-
-
 public class saleDAO {
- 
-	
+
 	private DataSource dataFactory;
 	private Connection conn;
 	private CallableStatement cstmt;
@@ -31,47 +28,34 @@ public class saleDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
-	
-	public List<saleVO> listsales(){
+
+	public List<saleVO> listsales() {
 		List<saleVO> listsales = new ArrayList<saleVO>();
 		try {
 			conn = dataFactory.getConnection();
 			String query = "{call sale_list(?)}";
-			CallableStatement cstmt =conn.prepareCall(query);
-			cstmt.registerOutParameter(1,OracleTypes.CURSOR);
-//			System.out.println(cstmt.);
-			// {call product_call.productdetail
+			CallableStatement cstmt = conn.prepareCall(query);
+			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
 			cstmt.executeQuery();
 			System.out.println(query);
-//			cstmt = conn.prepareCall(query);\
-			
-			
+
 			ResultSet rs = (ResultSet)cstmt.getObject(1);
-			while (rs.next())
-			{
-			
+			while (rs.next()) {
+
 				System.out.println(rs.getString("product_name"));
 				System.out.println(rs.getString("salepercent"));
 				System.out.println(rs.getString("imagepath"));
 				System.out.println(rs.getString("price"));
-				//System.out.println(rs.getInt("vcnt"));
-				
-			
-				String product_name = rs.getString(1);  //product_name
-				Integer salepercent = rs.getInt(2); //salepercent
-				 //imagepath 첫번재 줄의 3번재 컬럼 
+
+				String product_name = rs.getString(1);
+				Integer salepercent = rs.getInt(2);
 				String imagepath = rs.getString(3);
-				Integer price = rs.getInt(4); //price
-				
-				//saleVO listsale = new saleVO(product_name, salepercent, price);
-				saleVO listsale = new saleVO(product_name,salepercent,imagepath,price);
-				listsales.add(listsale); 
+				Integer price = rs.getInt(4);
+
+				saleVO listsale = new saleVO(product_name, salepercent, imagepath, price);
+				listsales.add(listsale);
 			}
-			
+
 			rs.close();
 			cstmt.close();
 			conn.close();
@@ -81,5 +65,44 @@ public class saleDAO {
 		return listsales;
 	}
 
-}
+	// ----2번
 
+//	public List<saleVO> listbest() {
+//		List<saleVO> listbest = new ArrayList<saleVO>();
+//		try {
+//			conn = dataFactory.getConnection();
+//			String query = "{call sale_best(?)}";
+//			CallableStatement cstmt = conn.prepareCall(query);
+//			cstmt.registerOutParameter(1, OracleTypes.CURSOR);
+//			System.out.println(cstmt);
+//
+//			cstmt.executeQuery();
+//			System.out.println(query);
+//			cstmt = conn.prepareCall(query);
+//
+//			ResultSet rs = (ResultSet) cstmt.getObject(1);
+//			while (rs.next()) {
+//
+//				System.out.println(rs.getString("product_name"));
+//				System.out.println(rs.getString("imagepath"));
+//				System.out.println(rs.getString("price"));
+//				
+//
+//				String product_name = rs.getString(1);
+//				String imagepath = rs.getString(2);
+//				Integer price = rs.getInt(3);
+//
+//				saleVO vo= new saleVO(product_name, imagepath, price);
+//				listbest.add(vo);
+//			}
+//
+//			rs.close();
+//			cstmt.close();
+//			conn.close();
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//		return listbest;
+//	}
+
+}

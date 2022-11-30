@@ -1,4 +1,4 @@
-package Saleproduct;
+package bestProducts;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,10 +17,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 //¾×¼Ç ¾¸ 
-@WebServlet("/saleController")
-public class saleController extends HttpServlet {
+@WebServlet("/bestController")
+public class bestController extends HttpServlet {
 
-	saleDAO sDAO =new saleDAO();
+	bestDAO sDAO =new bestDAO();
 	
    @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,9 +29,9 @@ public class saleController extends HttpServlet {
 	   request.setCharacterEncoding("utf-8");
 	   response.setContentType("text/html;charset=utf-8");
 		
-		List<saleVO> listsales = sDAO.listsales();
-		request.setAttribute("listsales", listsales);
-		RequestDispatcher dispatch = request.getRequestDispatcher("/Sale/Sale.jsp");
+		List<bestVO> listbests = sDAO.listbests();
+		request.setAttribute("listbests", listbests);
+		RequestDispatcher dispatch = request.getRequestDispatcher("/best/best.jsp");
 		dispatch.forward(request, response);
 		
 		

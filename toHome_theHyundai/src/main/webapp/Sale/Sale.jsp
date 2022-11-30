@@ -11,7 +11,6 @@
 	width: 300px;
 	height: 150px;
 }
-
 .vjs-fluid {
 	padding-top: 56.25%;
 }
@@ -41,7 +40,6 @@
 	display: inline-block;
 	padding: 10px;
 	}
-
 	ul {
 	display: table;
 	margin-left: auto;
@@ -250,5 +248,3 @@
 </body>
 
 </html>
-
-

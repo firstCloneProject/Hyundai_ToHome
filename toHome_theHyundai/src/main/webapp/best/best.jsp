@@ -174,34 +174,34 @@
 		<div id="contents">
 			<div class="innercon">
 				
-				<h2>세일</h2>
+				<h2>베스트</h2>
 			</div>
 
 
 			<ul class="product-list" id="ulItemList">
 				<!--1번-->
-				<c:forEach var="test" items="${listsales}">
+				<c:forEach var="tests" items="${listbests}">
 					<li>
 						<a href="#">
 							<span class="thumb"> 
-							<strong>	<img src="${test.imagepath}" /></strong>
+							<strong>	<img src="${tests.imagepath}" /></strong>
 									<div class="badgewrap">
 										<span class="badge"> 
-										<strong>
+										<!-- <strong>
 										${test.salepercent}%
-										</strong><!-- 할인율 -->
+										</strong><!-- 할인율 --> 
 										</span>
 									</div>
 									
 							</span>
-							<strong></strong><strong class="txt-ti ellipsis">${test.product_name}</strong></strong>
+							<strong><strong class="txt-ti ellipsis">${tests.product_name}</strong></strong>
 		                         <!--<button insert>-->
 						</a> 
 						
 							<span class="info"> 
 								<span class="text-price"> 
-									 <strong>${test.price}원</strong>
-									<del>${test.price}</del> 
+									 <strong>${tests.price}원</strong>
+									<del>${tests.price}</del>
 								</span>
 							</span>
 					</li>
