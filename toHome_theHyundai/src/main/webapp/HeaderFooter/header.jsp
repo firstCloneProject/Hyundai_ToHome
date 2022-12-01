@@ -115,11 +115,14 @@
 					<ul class="gnb-list" id="homeGnbList">
 						<li><a href="">베스트</a></li>
 						<li><a href="">세일</a></li>
-						<li><a href="">매거진</a></li>
+						<%-- <li><a href="${pageContext.request.contextPath}/magzine/mgzController">매거진</a></li> --%>
+					
+ 						<li><a href="#" onclick="goServlet()">매거진</a></li>
 						<li><a href="">선물하기</a></li>
 						<li><a href="">이벤트</a></li>
 						<li><a href=""></a> <img src="img/esuper_logo.png"
 							alt="esupermarket"></li>
+							
 					</ul>
 					<!-- 서치박스 -->
 					<div class="searcharea">
@@ -143,10 +146,15 @@
 						</form>
 
 					</div>
-					<button type="button" class="btn-cart" onclick="">
+					<button type="button" class="btn-cart" onClick="location.href='${pageContext.request.contextPath}/cart/cart.jsp'">
 						<span>0</span>
 					</button>
 			</div>
 			</nav>
 	</div>
+	<script type="text/javascript">
+	function goServlet(){
+		location.href="mgzController";
+	}
+	</script>
 	</header>

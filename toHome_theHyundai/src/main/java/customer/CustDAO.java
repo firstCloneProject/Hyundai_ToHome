@@ -9,7 +9,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import db.DBConnection;
+import db.DBManager;
 import oracle.jdbc.OracleCallableStatement;
 import oracle.jdbc.internal.OracleTypes;
 
@@ -33,12 +33,12 @@ public class CustDAO {
 	public CustVO loginCustomer (String cusotmerId, String _pwd) {
 		System.out.println("loginCustomer 넘어옴");
 		
-		String runSP = "{ call logincustomer(?, ?,?) }";
+		String runSP = "{ call logincustomer(?, ?, ?) }";
 //		String idid = null;
 	    CustVO custVO= null;
 	        	    
 	    try {
-			Connection conn = DBConnection.getConnection();
+			Connection conn = DBManager.getConnection();
 			CallableStatement callableStatement = conn.prepareCall(runSP);
 			
 			//String customerId = custVO.
@@ -53,7 +53,7 @@ public class CustDAO {
 			
 //		    rs = callableStatement.executeQuery();
 			System.out.println("gg");
-			System.out.println("rs는 뭐야" + rs);
+			System.out.println("rs는 " + rs);
 		    if(rs.next()){
 		    	System.out.println("dd");
 		    	
@@ -91,7 +91,7 @@ public class CustDAO {
 		String runSP = "{ call insertCustomer(?, ?, ?, ? ,? ,?, ?, ?) }";
 
 		try {
-			Connection conn = DBConnection.getConnection(); // 모든 파일마다 ????
+			Connection conn = DBManager.getConnection(); // 모든 파일마다 ????
 			CallableStatement callableStatement = conn.prepareCall(runSP);
 
 			String customerId = custVO.getCustomerId();

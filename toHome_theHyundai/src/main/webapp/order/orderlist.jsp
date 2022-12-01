@@ -47,7 +47,8 @@
         <!-- toparea// -->
         <div class="toparea">
           <h1>
-            <a href="/front/dp/dpa/dawnHome.do"><img src="../img/header_logo_freex34.png" alt="현대식품관"></a>
+            <a href="index.jsp"><img src="../img/header_logo_freex34.png" alt="현대식품관"></a>
+            <!-- 여기 경로 수정 -->
           </h1>
 
           <div class="util">
