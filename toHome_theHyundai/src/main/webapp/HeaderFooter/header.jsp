@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
 <html>
 <head>
 <title>새벽투홈</title>
-<link rel="icon" href="img/favicon.ico" />
-
+<link rel="icon" href="${pageContext.request.contextPath}/img/favicon.ico" />
 <!-- 스와이퍼 라이브러리 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
@@ -13,7 +15,10 @@
 <!-- AOS 라이브러리 불러오기-->
 <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="css/mainPage.css?ase">
+<script defer type="text/javascript" src="js/script.js?as"></script>
 </head>
 
 <body>
@@ -22,15 +27,14 @@
 			<div class="inner">
 				<div class="toparea">
 					<h1>
-						<a href=""> <img src="img/header_logo_freex34.png" alt="현대식품관" />
+						<a href="${pageContext.request.contextPath}/mainPage"> <img src="${pageContext.request.contextPath}/img/header_logo_freex34.png" alt="현대식품관" />
 						</a>
 					</h1>
-					
 					<c:choose>
 						<%-- <c:when test="${isLogOn == true and not empty loginUser}">	 --%>				
 						<c:when test="${empty sessionScope.loginUser}">
 					        <div class="util" id="dawnLoginN" style="display: hidden">
-								<a href="login/login.jsp">로그인</a> <a href="login/join.jsp">회원가입</a> <a href="">마이페이지</a>
+								<a href="${pageContext.request.contextPath}/login/login.jsp">로그인</a> <a href="${pageContext.request.contextPath}/login/join.jsp">회원가입</a> <a href="">마이페이지</a>
 								<a href="">고객센터</a>
 							</div>	
 	       								
@@ -50,30 +54,31 @@
 					        </div>	
 				        </c:otherwise>       
        				</c:choose>
-				</div>
-				<!-- 두번째 줄  -->
 				<nav class="gnbarea">
 
 					<button type="button" class="btn-category">카테고리 전체보기</button>
 					<div id="p_popCategory" class="popcategory">
 						<nav class="lnb-list">
 							<ul class="lnb">
+							<c:forEach var='category' items="${ctgr} ">
 								<li class="depth1">
 									<button type="button" onclick="">과일과 채소</button>
 									<ul class="depth2">
-										<li><a href="">전체보기</a></li>
-										<li><a href="">계절 과일</a></li>
-										<li><a href="">일상채소</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=ALL">전체보기</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=과일채소">계절 과일</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=일상채소">일상채소</a></li>
 										<li><a href="">샐러드·쌈채소</a></li>
 									</ul>
 								</li>
+							</c:forEach>
+
 								<li class="depth1">
 									<button type="button" onclick="">곡물 · 견과</button>
-									<ul cla    ss="depth2">
-										<li><a href="">전체보기</a></li>
-										<li><a href="">쌀</a></li>
-										<li><a href="">잡곡</a></li>
-										<li><a href="">견과</a></li>
+									<ul class="depth2">
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=곡물견과">전체보기</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=쌀">쌀</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=잡곡">잡곡</a></li>
+										<li><a href="${pageContext.request.contextPath}/mainPage/category.do?Category=견과">견과</a></li>
 									</ul>
 								</li>
 								<li class="depth1">
@@ -94,12 +99,12 @@
 								</li>
 
 								<li class="depth1">
-									<button type="button" onclick="">영양제</button>
+									<button type="button" onclick="">육류와 달걀</button>
 									<ul class="depth2">
 										<li><a href="">전체보기</a></li>
-										<li><a href="">인삼 · 홍삼</a></li>
-										<li><a href="">비타민</a></li>
-										<li><a href="">영양제</a></li>
+										<li><a href="">소고기</a></li>
+										<li><a href="">돼지고기</a></li>
+										<li><a href="">불고기</a></li>
 									</ul>
 								</li>
 								<li class="depth1">
@@ -113,20 +118,13 @@
 						</nav>
 					</div>
 					<ul class="gnb-list" id="homeGnbList">
-						<li><a href="">베스트</a></li>
-						<li><a href="">세일</a></li>
-						<%-- <li><a href="${pageContext.request.contextPath}/magzine/mgzController">매거진</a></li> --%>
-					
- 						<li><a href="#" onclick="goServlet()">매거진</a></li>
-						<li><a href="">선물하기</a></li>
-						<li><a href="">이벤트</a></li>
-						<li><a href=""></a> <img src="img/esuper_logo.png"
-							alt="esupermarket"></li>
-							
+						<li><a href="${pageContext.request.contextPath}/mainPage/best.do">베스트</a></li>
+						<li><a href="${pageContext.request.contextPath}/mainPage/sale.do">세일</a></li>
+						<li><a href="#" onclick="goServlet()">레시피</a></li>
 					</ul>
 					<!-- 서치박스 -->
 					<div class="searcharea">
-						<form name="pdPcSearchForm" id="pdPcSearchForm" method="post">
+						<form name="pdPcSearchForm" id="pdPcSearchForm" method="post" action="${pageContext.request.contextPath}/mainPage/search.do">
 							<fieldset>
 								<legend class="hide">검색어 입력</legend>
 								<div class="form-entry exist search">
@@ -134,27 +132,32 @@
 
 									<button type="button" class="btn-del" tabindex="-1"
 										style="display: block" onclick="reset">삭제</button>
-									<button type="button" class="btn-search" onclick="">검색</button>
+									<button type="submit" class="btn-search" onclick="">검색</button>
 
-									<!-- 먼가 정보를 몰래줌 -->
-									<input type="text" name="searchTerm" class="hide"> <input
-										type="text" name="category" class="hide"> <input
-										type="text" name="pageNumber" class="hide"> <input
-										type="text" name="rowsPerPage" class="hide"> <input
-										type="text" name="tagNm" class="hide">
 							</fieldset>
 						</form>
 
 					</div>
-					<button type="button" class="btn-cart" onClick="location.href='${pageContext.request.contextPath}/cart/cart.jsp'">
-						<span>0</span>
+					<button type="button" class="btn-cart" onclick="location.href='${pageContext.request.contextPath}/popupController';">
+						<span>${fn:length(sessionScope.cartList) }</span>
 					</button>
 			</div>
 			</nav>
 	</div>
-	<script type="text/javascript">
-	function goServlet(){
-		location.href="mgzController";
-	}
-	</script>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ -->
+ <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+   function goServlet(){
+      location.href="mgzController";
+   }
+   $(document).ready(function(){
+	    var a = $( '#test' );
+	    a.style.color = "blue"
+	  });
+	
+   </script>
 	</header>

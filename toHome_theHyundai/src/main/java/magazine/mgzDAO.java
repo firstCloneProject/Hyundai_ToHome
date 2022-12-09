@@ -51,7 +51,7 @@ public class mgzDAO {
 			ResultSet rs = (ResultSet)cstmt.getObject(2);
 			
 			while(rs.next()) {
-
+            
 				System.out.println(rs.getInt("RECIPE_ID"));
 				recipeId = rs.getInt("RECIPE_ID");
 				recipeImagepath = rs.getString("RECIPE_IMAGEPATH");
@@ -72,22 +72,18 @@ public class mgzDAO {
 	}
 	public List<mgzVO> getAllRecipe () {
 		System.out.println("getAllRecipe ³Ñ¾î¿È");
+		String runSP = "{ call recAll(?)}";
 		
 		Connection conn = DBManager.getConnection();
 		List<mgzVO> recipeList = new ArrayList<mgzVO>();
 		
 		try {
-			stmt = conn.createStatement();
-			String runSP = "SELECT * FROM RECIPE";
+			CallableStatement callableStatement = conn.prepareCall(runSP);
 			System.out.println("getAll() try¿¡ µé¾î¿È");
-			//CallableStatement cstmt = conn.prepareCall(runSP);
 			
-			//cstmt.setString(1, customerId);
-			//cstmt.registerOutParameter(2, OracleTypes.CURSOR);
-			//cstmt.executeQuery();
-			
-			ResultSet rs = stmt.executeQuery(runSP);
-			//ResultSet rs = (ResultSet)cstmt.getObject(2);
+			callableStatement.registerOutParameter(1, OracleTypes.CURSOR);
+			callableStatement.executeQuery();
+			ResultSet rs = (ResultSet)callableStatement.getObject(1);
 			
 			while(rs.next()) {
 

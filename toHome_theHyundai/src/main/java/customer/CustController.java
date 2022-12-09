@@ -59,7 +59,7 @@ public class CustController extends HttpServlet {
 			CustVO custVO = new CustVO(customerId, pwd, name, birth, address, telNo, joinDate, gender);
 			custDAO.addCustomer(custVO);
 			request.setAttribute("msg", "addCustomer");
-			nextPage = "../main.jsp";
+			nextPage = "../login/welcome.jsp";
 //		}else if(action.equals("/insertOrder.do")) {
 //		    HttpSession session = request.getSession();
 //		    CustVO loginUser = (CustVO) session.getAttribute("loginUser");
@@ -109,42 +109,9 @@ public class CustController extends HttpServlet {
 		    }    
 			
 		}
-		System.out.println("next페이지는" +nextPage);
-		System.out.println("---------------------------------------");
-		response.sendRedirect(nextPage);
-		/*
-		 * RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
-		 * dispatch.forward(request, response);
-		 */
-		
+//		
+	System.out.println("next페이지는" +nextPage);
+	System.out.println("---------------------------------------");
+	response.sendRedirect(nextPage);
 
-//	private void doHandle(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		String nextPage = null;
-//
-//		request.setCharacterEncoding("utf-8");
-//		response.setContentType("text/html;charset=utf-8");
-//
-//		String action = request.getPathInfo();
-//		String contextPath = request.getContextPath();
-//		System.out.println("action:" + action);
-//
-//		if (action == null || action.equals("/addCustomer.do")) {
-//			System.out.println("controller 들어옴");
-//			String customerId = request.getParameter("customerId");
-//			String pwd = request.getParameter("pwd");
-//			String name = request.getParameter("name");
-//			String telNo = request.getParameter("telNo");
-//			String birth = request.getParameter("birth");
-//			String gender = request.getParameter("gender");
-//			String address = request.getParameter("address");
-//			String joinDate = request.getParameter("joinDate");
-//			CustVO custVO = new CustVO(customerId, pwd, name, telNo, birth, gender, address, joinDate);
-//			custDAO.addCustomer(custVO);
-//			request.setAttribute("msg", "addCustomer");
-//			nextPage = "/login/welcome.jsp";
-//		}
-//		RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
-//		dispatch.forward(request, response);
-//	}
 }}

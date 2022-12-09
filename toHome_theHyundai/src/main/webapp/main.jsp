@@ -136,7 +136,8 @@
 								</span>
 							</span></li>
 							<li><a href=""> <img src="/img/16.jpg" alt=""> <strong
-									class="txt-ti ellipsis">[설성목장] 한우 안심구이용 200g</strong>
+									class=
+									"txt-ti ellipsis">[설성목장] 한우 안심구이용 200g</strong>
 							</a> <span class="info"> <span class="txt-prcie"> <strong>
 											<em>62,500</em> 원
 									</strong>

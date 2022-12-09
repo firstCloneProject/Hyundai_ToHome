@@ -30,7 +30,67 @@ public class CustDAO {
 		}
 	}
 	
-	public CustVO loginCustomer (String cusotmerId, String _pwd) {
+	public int checkId(String customerId) throws SQLException {  // 유저가 입력한 값을 매개변수로 한다
+//		Connection conn = DBManager.getConnection();
+//		String sql = "select * from CUSTOMER where CUSTOMERID = ?"; // 입력값이 테이블에 있는지 확인
+//		int idCheck = 0;
+//		ResultSet rs;
+//		PreparedStatement psmt;
+//
+//	    try {
+//			psmt = conn.prepareStatement(sql);
+//			psmt.setString(1, id);
+//			
+//			rs = psmt.executeQuery();
+//					
+//			if(rs.next() || id.equals("")) {
+//				idCheck = 0;  // 이미 존재하는 경우, 생성 불가능
+//			} else {
+//				idCheck = 1;  // 존재하지 않는 경우, 생성 가능
+//			}
+//			
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			conn.close();
+//		}
+//		
+//		return idCheck;
+		
+		System.out.println("checkId 넘어옴");
+		
+		String runSP = "{ call checkId(?, ?) }";
+		int idCheck = 1;
+		
+	    
+	    try {
+			Connection conn = DBManager.getConnection();
+			CallableStatement callableStatement = conn.prepareCall(runSP);
+			
+			callableStatement.setString(1, customerId);
+			callableStatement.registerOutParameter(2,OracleTypes.INTEGER);
+			callableStatement.execute();
+			
+			idCheck = (int) callableStatement.getObject(2);
+			
+			if (idCheck == 1) {
+				System.out.println("사용가능한 아이디입니다d.");
+			}else {
+				System.out.println("아이디가 존재합니다.");
+			}
+	
+			System.out.println("idCheck는 " + idCheck);
+			
+			
+			//conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return idCheck;
+	}
+	
+	
+	public CustVO loginCustomer (String customerId, String _pwd) {
 		System.out.println("loginCustomer 넘어옴");
 		
 		String runSP = "{ call logincustomer(?, ?, ?) }";
@@ -42,7 +102,7 @@ public class CustDAO {
 			CallableStatement callableStatement = conn.prepareCall(runSP);
 			
 			//String customerId = custVO.
-			callableStatement.setString(1, cusotmerId);
+			callableStatement.setString(1, customerId);
 			callableStatement.setString(2, _pwd);
 			callableStatement.registerOutParameter(3,OracleTypes.CURSOR);
 //			callableStatement.registerOutParameter(1, java.sql.Types.VARCHAR);
@@ -65,10 +125,10 @@ public class CustDAO {
 			    custVO.setPwd(rs.getString(2));
 			    custVO.setName(rs.getString(3));
 			    custVO.setBirth(rs.getString(4));
-			    custVO.setAddress(rs.getString(5));
-			    custVO.setTelNo(rs.getString(6));
-			    custVO.setJoinDate(rs.getString(7));
-			    custVO.setGender(rs.getString(8));
+			    custVO.setTelNo(rs.getString(5));
+			    custVO.setJoinDate(rs.getString(6));
+			    custVO.setGender(rs.getString(7));
+			    custVO.setAddress(rs.getString(8));
 			    
 	
 			    
@@ -116,12 +176,12 @@ public class CustDAO {
 			callableStatement.setString(2, pwd);
 			callableStatement.setString(3, name);
 			callableStatement.setString(4, birth);
-			callableStatement.setString(5, address);
+			callableStatement.setString(5, telNo);
+			callableStatement.setString(6, joinDate);
+			callableStatement.setString(7, gender);
+			callableStatement.setString(8, address);
 
-			callableStatement.setString(6, telNo);
 			// callableStatement.setDate(7, Timestamp~);
-			callableStatement.setString(7, joinDate);
-			callableStatement.setString(8, gender);
 
 //			
 //

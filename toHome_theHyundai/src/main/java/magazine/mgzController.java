@@ -36,10 +36,11 @@ public class mgzController extends HttpServlet{
 		}
 		System.out.println("action : " + action);
 		
-		if (action == null || action.equals("/getRecommand.do")) {
+		if (action.equals("/getRecommand.do")) {
 			HttpSession session = request.getSession();
 			CustVO custVO = (CustVO) session.getAttribute("loginUser");
-			String customerId = custVO.getCustomerId();
+			String customerId = request.getParameter("CustomerId");
+			System.out.println(customerId);
 			
 			List<mgzVO> recipeList = mDao.getRecommand(customerId);
 			request.setAttribute("recipeList", recipeList);
@@ -52,6 +53,7 @@ public class mgzController extends HttpServlet{
 			
 			List<mgzVO> recipeList = mDao.getAllRecipe();
 			request.setAttribute("recipeList", recipeList);
+			
 			
 			  // RequestDispatcher dispatch =
 				/*

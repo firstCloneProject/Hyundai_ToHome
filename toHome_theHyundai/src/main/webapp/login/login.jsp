@@ -16,12 +16,36 @@
 <link rel="stylesheet" type="text/css" href="../css/member.min.css">
 <link rel="stylesheet" type="text/css" href="../css/common.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<style>
+#wrap {
+height: auto;
+}
+</style>
 
 </head>
 <body>
-
-
     <div id="wrap" class="member login">
+    	<header id="header" class="short">
+    	<div class="skip">
+        <a href="#contents">본문으로 건너뛰기</a>
+    	</div>
+    
+	    <div class="inner">
+	        <!-- toparea// -->
+	        <div class="toparea">
+	            <h1><a href="${pageContext.request.contextPath}/main.jsp"><img src="${pageContext.request.contextPath}/img/header_logo_freex34.png" alt="현대식품관"></a></h1>
+	            
+	            <div class="util">
+	                        <!-- util : 로그인 전// -->
+	                        <a href="login.jsp">로그인</a>
+	                        <a href="join.jsp">회원가입</a>
+	            </div>
+	            
+	        </div>
+	        <!-- //toparea -->
+	    </div>
+	</header>
+    
         <div id="contents">
             <div class="innercon">
                 <h2>로그인</h2>
@@ -41,13 +65,7 @@
                                 </label>
                             </li>
                         </ul>
-                        <label class="form-save">
-                            <input type="checkbox" id="idSaveYn" name="idSaveYn" class="big" checked="">
-                            <span> 
-                               
-                                아이디저장
-                            </span>
-                        </label>
+                        
                         <ul class="btn-group login-support">
                             <li>
                                 <a href="${pageContext.request.contextPath}/login/join.jsp" >회원가입</a>
@@ -67,5 +85,4 @@
     </div>
 
 </c:set>
-</body>
-</html>
+<%@ include file="../HeaderFooter/footer.jsp"%>
